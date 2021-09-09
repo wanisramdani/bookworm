@@ -32,8 +32,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "whitenoise.runserver_nostatic",
     "rest_framework",
+    'tinymce',
 
+    "backend.apps",
     "backend.apps.demo.apps.DemoConfig",
+    "backend.apps.publication.apps.PublicationConfig",
 ]
 
 MIDDLEWARE = [
