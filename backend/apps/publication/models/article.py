@@ -13,13 +13,13 @@ from .category import *
 '''
 # For pictures
 def get_image_upload_path(instance, filename):
-    return os.path.join('media/pictures/', datetime.datetime.now().date().strftime("%Y/%m/%d"), filename)
+    return os.path.join('pictures/', datetime.datetime.now().date().strftime("%Y/%m/%d"), filename)
 
 def get_pdf_upload_path(instance, filename):
-    return os.path.join('media/pdf/', datetime.datetime.now().date().strftime("%Y/%m/%d"), filename) 
+    return os.path.join('pdfs/', datetime.datetime.now().date().strftime("%Y/%m/%d"), filename) 
 
 
-# TODO: add help_text
+# TODO: add help_text, Type to card&book
 # title, author, upload-date, category, klass, series, type, status
 class Article(models.Model):
     # TODO max length for arabic title/names
@@ -27,7 +27,7 @@ class Article(models.Model):
     slug = models.SlugField(unique=True)
     author = models.CharField(max_length=500)
     klass = models.ManyToManyField(Klass, blank=False, related_name='klass')
-    series = models.ManyToManyField(Series, blank=True, null=True, related_name='series')
+    series = models.ManyToManyField(Series, blank=True, related_name='series')
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
