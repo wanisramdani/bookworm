@@ -85,7 +85,18 @@ and use it as in one view file (to make importing it in urls easy)
 ( e.g: NEW_FOLDER/__init__.py )
 
 # File structure
+TODO
 
+# Common Errors:
+
+1. ## Makemigrations is mad!: 
+
+if django asks you to set a default value to some field when you try to makemigration after some 
+changes on models you have to delete migartions folder and drop the table of that changed model.
+What causing this issue is django needs to add your new changes/fields to already created table in database and it has to set a value to those new added fields you can avoid that by adding `default=` attribute to you new fields.
+
+# Must run commands:
+python3 manage.py collectstatic
 
 videos: 
 الشيخ
