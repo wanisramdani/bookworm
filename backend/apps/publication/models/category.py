@@ -21,9 +21,23 @@ class Category(models.Model):
             p = p.parent
         return ' -> '.join(full_path[::-1])
 
-# To separate  
-class Klass(Category):
-    pass
 
-class Series(Category):
-    pass
+class Klass(models.Model):
+    title = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.title
+
+
+class Series(models.Model):
+    title = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.title
+
+
+class Type(models.Model):
+    title = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.title

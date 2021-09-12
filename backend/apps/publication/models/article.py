@@ -18,6 +18,8 @@ def get_image_upload_path(instance, filename):
 def get_pdf_upload_path(instance, filename):
     return os.path.join('pdfs/', datetime.datetime.now().date().strftime("%Y/%m/%d"), filename) 
 
+def get_audio_upload_path(instance, filename):
+    return os.path.join('audio/', datetime.datetime.now().date().strftime("%Y/%m/%d") , filename)
 
 # TODO: add help_text, Type to card&book
 # title, author, upload-date, category, klass, series, type, status
@@ -59,11 +61,8 @@ class Audio(Article):
     audio_author = models.CharField(max_length=300)
     album = models.CharField(max_length=300, blank=True, null=True)
     picture = models.ImageField(default='default.png', upload_to=get_image_upload_path, blank=True)
-    audio_file = models.FileField(blank=True, null=True)
+    audio_file = models.FileField(upload_to=get_audio_upload_path, blank=True, null=True)
     duration = models.CharField(max_length=20)
-
-    def save(self):
-        self.duration = '1.2mb' # calcualte file duartion
 
     def __str__(self):
         return self.title 
@@ -73,7 +72,7 @@ class Audio(Article):
 class Book(Article):
     # ImageField
     # Book-type : should be sub-category
-    book_pdf = models.FileField()
+    book_pdf = models.FileField(upload_to=get_pdf_upload_path)
     cover = models.ImageField(default="default.png", upload_to=get_image_upload_path, blank=True)
     book_audio = models.OneToOneField(Audio, blank=True, null=True, on_delete=models.CASCADE)
 
