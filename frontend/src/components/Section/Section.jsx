@@ -18,7 +18,6 @@ const CardsSlider = () => {
         <div className={classes.cardContainter}>
 
             <ItemsCarousel
-                infiniteLoop={true}
                 alwaysShowChevrons={true}
                 placeholderItem={<div style={{ height: 100, background: "red" }} />}
                 enablePlaceholder={true}
@@ -28,8 +27,8 @@ const CardsSlider = () => {
                 outsideChevron={true}
                 activeItemIndex={activeItemIndex}
                 requestToChangeActive={setActiveItemIndex}
-                rightChevron={">"} 
-                leftChevron={"<"}
+                rightChevron={"<"} 
+                leftChevron={">"}
                 chevronWidth={chevronWidth}
             >
 
@@ -68,7 +67,6 @@ const VideoDisplay = () => {
 
     return(
         <ItemsCarousel
-            infiniteLoop={true}
             placeholderItem={<div style={{ height: 100, background: "#EEE" }} />}
             enablePlaceholder={true}
             numberOfPlaceholderItems={5}
