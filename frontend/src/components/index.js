@@ -7,3 +7,4 @@ export { default as List } from './List/List';
 
 export { default as Breadcrumb } from './Breadcrumb/Breadcrumb'
 export { default as Todaydate } from './Main/Date/Todaydate';
+export { default as CustomPagination } from './Utils/CustomPagination'

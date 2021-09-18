@@ -2,6 +2,7 @@ import React from 'react'
 import { Input, FormControl, InputLabel, Select, MenuItem, Button } from '@material-ui/core'
 
 import { Breadcrumb } from '../index';
+import DataTable from './DataTable'
 import useStyles from './Styles';
 
 const List = () => {
@@ -20,41 +21,51 @@ const List = () => {
                             القسم
                         </InputLabel>
                         <Select 
+                            className={classes.selectFilter}
                             classes={{icon:classes.icon, iconOpen:classes.iconOpen,select:classes.selectSelect}}
                         >
                             <MenuItem value={10}>Ten</MenuItem>
                         </Select>
                     </FormControl>
-                    
+                    {/* age */} 
                     <FormControl className={classes.formControl}>
-                        <InputLabel classes={{formControl:classes.formControlLabel}} id="demo-simple-select-label">Age</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
+                     <InputLabel shrink className={classes.labelFilter}>
+                            القسم
+                        </InputLabel>
+                        <Select 
+                            className={classes.selectFilter}
                             classes={{icon:classes.icon, iconOpen:classes.iconOpen,select:classes.selectSelect}}
                         >
                             <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
                         </Select>
                     </FormControl>
                 
                     <FormControl className={classes.formControl}>
                         <InputLabel shrink className={classes.labelFilter}>
-                            السلسلة        
+                            القسم
                         </InputLabel>
-                        <Select className={classes.selectFilter} >
+                        <Select 
+                            className={classes.selectFilter}
+                            classes={{icon:classes.icon, iconOpen:classes.iconOpen,select:classes.selectSelect}}
+                        >
                             <MenuItem value={10}>Ten</MenuItem>
                         </Select>
+        
                     </FormControl>
-                    <FormControl>
-                        <InputLabel className={classes.labelFilter}>Name</InputLabel>
-                        <Input className={classes.selectFilter}  />
+                    <FormControl className={classes.searchForm}>
+                        <InputLabel shrink className={classes.searchLabel}>
+                            القسم
+                        </InputLabel>
+                        <Input className={classes.searchInput}  />
                     </FormControl>
-                    <Button></Button>
+                    <Button className={classes.filterBtn}>Submit</Button>
                   </div>
               </div>
-              <div className={classes.listContent}></div>
+
+              <div className={classes.listContent}>
+                  <DataTable />
+              </div>
+          
           </div>
 
         </div>

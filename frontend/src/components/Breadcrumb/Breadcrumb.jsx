@@ -6,7 +6,7 @@ const useStyle = makeStyles( theme => ({
         gridRow: '1/2',
         gridColumn: '1/12',
         textAlign: 'right',
-        backgroundColor: 'gray',
+        backgroundColor: '#d8d4d4',
     },
 }) );
 
