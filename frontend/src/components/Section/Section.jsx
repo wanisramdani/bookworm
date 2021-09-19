@@ -85,7 +85,7 @@ const VideoDisplay = () => {
 
             {Array.from(new Array(10)).map((_, i) =>
                 <YoutubeEmbed 
-                    embedId="bE31y5HbukA" 
+                    src="https://youtu.be/-HKy6AIuHZ0" 
                     title="Youtube Title"
                     width="150"
                     height="100"

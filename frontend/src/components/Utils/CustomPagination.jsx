@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { makeStyles } from '@material-ui/core'
-import { useGridSlotComponentProps } from '@material-ui/data-grid';
 import { Pagination } from '@material-ui/lab'
 
 const useStyles = makeStyles ( theme => ({
@@ -43,23 +42,19 @@ const useStyles = makeStyles ( theme => ({
 }) );
 
 
-const CustomPagination = () => {
-    const { state, apiRef } = useGridSlotComponentProps()
+const CustomPagination = ({ page, count, onChange }) => {
     const classes = useStyles();
-    const isFirstPage = state.pagination.page === 1 ? false : true
-    
+    const isFirstPage = page === 1 ? true : false
+    console.log(page === 1)
     return (
         <Pagination
             className={classes.root}
-            count={state.pagination.pageCount}
-            page={state.pagination.page + 1}
-            onChange={(event, page) => 
-                apiRef.current.setPage(page - 1)
-            }
+            count={count}
+            page={page}
+            onChange={onChange}
             showLastButton={true}
             showFirstButton={!isFirstPage}
             hidePrevButton={isFirstPage}
-
             variant="outlined" 
             shape="rounded" 
         />    

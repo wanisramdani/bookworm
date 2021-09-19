@@ -30,9 +30,23 @@ const useStyles = makeStyles( (theme) => ({
     */
 
 }) );
+function YouTubeGetID(url){
+    var ID = '';
+    url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+    
+    if(url[2] !== undefined) {
+      ID = url[2].split(/[^0-9a-z_-]/i);
+      ID = ID[0];
+    } else {
+      ID = url;
+    }
+    
+    return ID;
+ }
 
-const YoutubeEmbed = ({ embedId, title, width, height }) => {
+const YoutubeEmbed = ({ src, title, width, height }) => {
     const classes = useStyles()
+    const embedId = YouTubeGetID(src)
     return (
         <div className={classes.videoResponsive}>
             <iframe 

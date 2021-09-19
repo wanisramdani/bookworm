@@ -13,16 +13,16 @@ const Navbar = () => {
                <Toolbar className={classes.toolBar}>
                     <div className={classes.navbarItems}>                            
                         <div className={classes.items}>
-                            <Typography className={classes.title} component={Link} to="/" variant="h6">
+                            <Typography className={classes.title} component={Link} to="/fatawi" variant="h6">
                                 Fatawi
                             </Typography>
-                            <Typography  className={classes.title} component={Link} to="/" variant="h6">
+                            <Typography  className={classes.title} component={Link} to="/videos" variant="h6">
                                 Audio&Video
                             </Typography>
-                            <Typography className={classes.title}  component={Link} to="/" variant="h6">
+                            <Typography className={classes.title}  component={Link} to="/books" variant="h6">
                                 Books
                             </Typography>
-                            <Typography  className={classes.title} component={Link} to="/" variant="h6">
+                            <Typography  className={classes.title} component={Link} to="/cards" variant="h6">
                                 Pray Cards
                             </Typography>
                             <Typography align="right" className={classes.title} component={Link} to="/" variant="h6">

@@ -2,6 +2,8 @@ import React from 'react'
 import { DataGrid } from '@material-ui/data-grid'
 
 import { makeStyles } from '@material-ui/core';
+import { useGridSlotComponentProps } from '@material-ui/data-grid';
+
 import CustomPagination from '../Utils/CustomPagination';
 const useStyles = makeStyles( theme => ({ 
   footerContainer: {
@@ -59,7 +61,21 @@ const rows = [
     { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 ];
 
-const DataTable = () => {
+const DataTablePagination = () => {
+  const { state, apiRef } = useGridSlotComponentProps()
+  const page = state.pagination.page;
+  const pageCount = state.pagination.pageCount;
+  const handleChange = (event, page) => apiRef.current.setPage(page - 1)
+  return (
+    <CustomPagination 
+      page={page + 1}
+      count={pageCount}
+      onChange={handleChange}
+    />
+  )
+}
+
+const DataTable = ({ books, audio, fatawi }) => {
     const classes = useStyles();
     return (
         <div >
@@ -74,7 +90,7 @@ const DataTable = () => {
                 paginationMode="client"
                 pagination
                 components= {{
-                    Footer: CustomPagination
+                    Footer: DataTablePagination
                 }}
                 classes={{
                   Footer:classes.footerContainer,

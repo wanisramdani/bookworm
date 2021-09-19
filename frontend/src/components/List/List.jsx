@@ -3,9 +3,10 @@ import { Input, FormControl, InputLabel, Select, MenuItem, Button } from '@mater
 
 import { Breadcrumb } from '../index';
 import DataTable from './DataTable'
+import MediaList from './MediaList';
 import useStyles from './Styles';
 
-const List = () => {
+const List = ({ books, cards, videos, audios, fatawi }) => {
     const classes = useStyles();
     return (
         <div className={classes.listContainer}>
@@ -63,7 +64,11 @@ const List = () => {
               </div>
 
               <div className={classes.listContent}>
-                  <DataTable />
+                    {cards ? <MediaList cards={true} /> : ''}
+                    {books ? <DataTable books={true} /> : ''}
+                    {audios ? <DataTable audios={true} /> : ''}
+                    {videos ? <MediaList videos={true} /> : ''}
+                    {fatawi ? <DataTable fatawi={true} /> : ''}
               </div>
           
           </div>
