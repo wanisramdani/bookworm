@@ -45,7 +45,6 @@ const useStyles = makeStyles ( theme => ({
 const CustomPagination = ({ page, count, onChange }) => {
     const classes = useStyles();
     const isFirstPage = page === 1 ? true : false
-    console.log(page === 1)
     return (
         <Pagination
             className={classes.root}

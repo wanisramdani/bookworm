@@ -6,7 +6,7 @@ import { Button } from '@material-ui/core';
 
 import useStyles from './Styles';
 
-const YoutubeEmbed = lazy(() => import('../Utils/YoutubeEmbed') )
+import YoutubeEmbed from '../Utils/YoutubeEmbed';
 
 
 const CardsSlider = () => {

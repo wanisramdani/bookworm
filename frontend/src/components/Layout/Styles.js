@@ -1,21 +1,18 @@
 import { makeStyles } from "@material-ui/core";
-
+/* Layout */ 
 export default makeStyles( (theme) => ({
-    container: {
-      maxWidth: '960px',
-      margin: 'auto',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-
     content: {
         display: 'grid',
         background: '#51403F',
         gridTemplateColumns: 'repeat(12, 1fr)',
         gridAutoRows: 'minmax(100px, auto)',
-        maxWidth: '960px',
+        maxWidth: '1280',
+        maxHeight: '1080',
         margin: '0 auto',
         position: 'relative',
+        [theme.breakpoints.up('xm')]: {
+           background: 'red',
+        },
       },
       
       header: {

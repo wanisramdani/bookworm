@@ -10,7 +10,6 @@ export default makeStyles( (theme) => ({
         fontWeight: 'bold',
         textAlign: 'right',
         gridRow: '3/4',
-        height: '50px',
     },
 
     todayDate: {

@@ -17,44 +17,5 @@ export default makeStyles( (theme) => ({
         textAlign: 'right',
     },
 
-    audioCard: {
-        display: 'grid',
-        margin: '50px',
-        marginBottom: '90px'
-    },
-
-    audioPlayer: {
-        marginTop: '10px',
-        paddingRight: '10px',
-        gridColumn: '3/8',
-    },
-
-    audioDetails: {
-        width: '516px',
-        marginTop: "15px",
-        gridColumn: "3/8",
-        gridRow: '2/3',
-    },
-
-    cardContent:{
-
-    },
-
-    gridContent: {
-        cursor: 'pointer',
-        "&:hover": {
-            background: '#fbeded',
-        },
-        "&:focus":{
-            background: 'red',
-        },
-        margin: '6px',
-        padding: '2px',
-        background: '#ffff',
-    },
-
-    audioPicture: {
-        gridRow: '1/3',
-    },
 
 }) );
