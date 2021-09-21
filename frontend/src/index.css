@@ -1,12 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;600;700;900&display=swap');
+@font-face {
+  font-family: 'Cairo';
+  src: local('Cairo'), url("./fonts/Cairo/Cairo-SemiBold.ttf") format('truetype');
+  font-weight: normal;
+}
 
 body {
   margin: 0;
   background: #fff4e5 !important;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Cairo'; 
+  /* -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif, 'Cairo';
+    sans-serif, 'Cairo'; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

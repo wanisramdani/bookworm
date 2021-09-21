@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { lazy, useState } from 'react'
 
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardMedia, Typography, Grid} from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { Box } from '@material-ui/core';
 import { Divider } from '@material-ui/core';
-import YoutubeEmbed from '../Utils/YoutubeEmbed'
 import { CustomPagination } from '..';
+
+const YoutubeEmbed = lazy( () => import('../Utils/YoutubeEmbed') )
 
 const useStyles = makeStyles( theme => ({
     cardContent: {
@@ -64,7 +65,7 @@ const VideoList = ({item, classes}) => {
                 onClick={ () => console.log("") }
             >   
                 <YoutubeEmbed 
-                    src="https://youtu.be/-HKy6AIuHZ0"
+                    src="https://youtu.be/c_8cplBi_gE"
                     title={item.title}
                     height="180"
                     width="200"

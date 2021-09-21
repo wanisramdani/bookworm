@@ -50,6 +50,7 @@ const YoutubeEmbed = ({ src, title, width, height }) => {
     return (
         <div className={classes.videoResponsive}>
             <iframe 
+                loading='lazy'
                 width={width}
                 height={height}
                 src={`https://www.youtube.com/embed/${embedId}`}
@@ -58,7 +59,7 @@ const YoutubeEmbed = ({ src, title, width, height }) => {
                 allowFullScreen
                 title={title}
                 />
-                
+
         </div>
     )
 }

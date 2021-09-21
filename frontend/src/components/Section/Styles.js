@@ -67,6 +67,8 @@ export default makeStyles( (theme) => ({
     },
 
     /* VIDEOS Views */ 
-
-
+    img: {
+        paddingLeft: '50px',
+        paddingRight: '50px',
+    }
 }) );

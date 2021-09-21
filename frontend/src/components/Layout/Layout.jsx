@@ -2,6 +2,7 @@ import React, {Suspense} from 'react'
 
 import { Container, Box, CssBaseline } from '@material-ui/core';
 import { Navbar, Main} from '../index'
+
 import useStyles from './Styles';
 
 const Layout = ( {children} ) => {
@@ -22,7 +23,9 @@ const Layout = ( {children} ) => {
                 </Box>
                 
                 <Box className={classes.section}>
-                    {children}
+                    <Suspense fallback={<div>Loading...</div>}>
+                        {children}
+                    </Suspense>
                 </Box>
 
                 <Box className={classes.footer}></Box>
