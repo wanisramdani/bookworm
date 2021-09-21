@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { createTheme, ThemeProvider, CssBaseline } from '@material-ui/core';
 import { Layout, Section, List, Profile } from './components';
 
-/* https://github.com/adrianhajdin/project_e_commerce/blob/main/src/App.js */
-
 const theme = createTheme({
   direction: 'rtl',
   typography: {
