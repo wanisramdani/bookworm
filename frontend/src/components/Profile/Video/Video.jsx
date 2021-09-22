@@ -33,7 +33,7 @@ const Video = ({src, title}) => {
                 title={title}
                 height={ isMobile ? '300px' : '600px' }
                 width='100%'
-
+                
             />
         </div>
     )

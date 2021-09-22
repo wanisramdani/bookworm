@@ -72,10 +72,11 @@ const videoContent = (classes) => Array.from(new Array(10)).map((_, i) =>
         }}> 
         <YoutubeEmbed 
             key={i}
+            light={true}
             src="https://youtu.be/c_8cplBi_gE" 
             title="Youtube Title"
-            width="200"
-            height="150"
+            width="100%"
+            height="120px"
         />
         <CardContent
             classes={{root:classes.cardContent}}

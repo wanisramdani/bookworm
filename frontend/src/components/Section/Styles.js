@@ -82,7 +82,8 @@ export default makeStyles( (theme) => ({
 
     /* Video View */
     videoCard: {
-        background: "transparent"
+        background: "transparent",
+        paddingLeft: '10px',
     },
 
 }) );

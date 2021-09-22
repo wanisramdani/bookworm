@@ -1,5 +1,7 @@
-import { makeStyles } from '@material-ui/core';
 import React from 'react'
+import { makeStyles } from '@material-ui/core';
+
+import ReactPlayer from 'react-player'
 
 
 const useStyles = makeStyles( (theme) => ({
@@ -30,25 +32,12 @@ const useStyles = makeStyles( (theme) => ({
     */
 
 }) );
-function YouTubeGetID(url){
-    var ID = '';
-    url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
-    
-    if(url[2] !== undefined) {
-      ID = url[2].split(/[^0-9a-z_-]/i);
-      ID = ID[0];
-    } else {
-      ID = url;
-    }
-    
-    return ID;
- }
 
 const YoutubeEmbed = ({ src, title, width, height }) => {
     const classes = useStyles()
-    const embedId = YouTubeGetID(src)
     return (
         <div className={classes.videoResponsive}>
+            { /*
             <iframe 
                 loading='lazy'
                 width={width}
@@ -58,7 +47,16 @@ const YoutubeEmbed = ({ src, title, width, height }) => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 title={title}
-                />
+                /> */
+            }
+            <ReactPlayer
+                controls={true}
+                playing={true}
+                url={src} 
+                light={true}
+                height={height}
+                width={width}
+            />
 
         </div>
     )

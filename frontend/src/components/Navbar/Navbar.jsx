@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
-import { CssBaseline, AppBar, Toolbar, InputBase, Typography, useMediaQuery, SwipeableDrawer, MenuItem, IconButton, ListItemIcon, InputLabel } from '@material-ui/core';
+import { CssBaseline, AppBar, Toolbar, InputBase, Typography, useMediaQuery, SwipeableDrawer, IconButton } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search'
 import MenuIcon from "@material-ui/icons/Menu";
 import useStyles from './styles';
