@@ -40,5 +40,32 @@ export default makeStyles( (theme) => ({
       footer: {
         gridColumn: '1/13',
         gridRow: '8/10',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateRows: 'repeat(3, 1fr)',
+        color: 'white',
+
+      },
+      footerLogo:{},
+      fullName:{},
+      sellOut:{},
+      copyRight:{},
+
+
+      contactDetails:{
+        margin: '10px',
+        direction: 'ltr',
+        display:' inline-flex',
+        color: 'white',
+        [theme.breakpoints.down('sm')]: {
+          display: 'block',
+        },
+      },
+
+      EmailIcon:{
+        marginLeft: '50px',
+        [theme.breakpoints.down('sm')]: {
+          marginLeft: '0',
+        },
       },
 }) );

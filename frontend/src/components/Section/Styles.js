@@ -45,6 +45,9 @@ export default makeStyles( (theme) => ({
         gridGap: '10px',
         padding: '10px',
         overflow: 'overlay',
+        [theme.breakpoints.down('md')]:{
+            gridTemplateColumns: 'repeat(2, 1fr)',
+        },
         [theme.breakpoints.down("xs")]: {
             gridTemplateColumns: 'repeat(1, 1fr)',
         },

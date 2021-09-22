@@ -15,8 +15,11 @@ const WebAppBar = () => {
             <Typography className={classes.title} component={Link} to="/fatawi" variant="h6">
                 Fatawi
             </Typography>
+            <Typography  className={classes.title} component={Link} to="/audios" variant="h6">
+                Audio
+            </Typography>
             <Typography  className={classes.title} component={Link} to="/videos" variant="h6">
-                Audio&Video
+                Video
             </Typography>
             <Typography className={classes.title}  component={Link} to="/books" variant="h6">
                 Books

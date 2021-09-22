@@ -4,14 +4,20 @@ export default makeStyles( (theme) => ({
     
     siteName: {
         textAlign: "center",
-        paddingTop: '70px',
-        height: '50px',
+        height: '300px',
+        
       },
     
     sns: {
+        display: 'flex',
+        direction: 'ltr',
+        color: 'white',
         gridRow: "2/3",
-        textAlign: 'left',
         padding: '10px',
-    }
+        alignSelf: 'center',
+        [theme.breakpoints.down('md')]:{
+            display: 'grid',
+        },
+    },
 
 }) );
