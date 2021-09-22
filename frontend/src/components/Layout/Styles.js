@@ -46,11 +46,33 @@ export default makeStyles( (theme) => ({
         color: 'white',
 
       },
-      footerLogo:{},
-      fullName:{},
-      sellOut:{},
-      copyRight:{},
+      footerLogo:{
+        gridRow: '1/3',
+        gridColumn: '1/2',
+      },
+      fullName:{
+        gridRow: '1/3',
+        gridColumn: '2/3',
+      },
 
+      followUs:{
+        gridRow: '1/2',
+        gridColumn: '3/4',
+      },
+  
+      sns:{
+        gridRow: '2/3',
+        gridColumn: '3/4',
+      },
+  
+      copyRight:{
+        gridRow: '3/4',
+        gridColumn: '2/3',
+      },
+
+      Divider:{
+        border: "1px solid #fff4e5",
+      },
 
       contactDetails:{
         margin: '10px',

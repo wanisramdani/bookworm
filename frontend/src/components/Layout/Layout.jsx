@@ -58,8 +58,8 @@ const Layout = ( {children} ) => {
                             safhatalssahihin
                         </div>
                     </Box>
-                    <Divider />
                     <Box className={classes.copyRight}>
+                        <Divider classes={{ root: classes.Divider }} variant='fullWidth' />
                         All rights are reserved
                     </Box>
                 </Box>
