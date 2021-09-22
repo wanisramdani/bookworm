@@ -4,20 +4,40 @@ import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles( (theme) => ({
     bookContainer: {
-        justifySelf: 'center',
-        marginBottom: '50px',
+        [theme.breakpoints.up('md')]:{
+            justifySelf: 'center',
+            marginBottom: '50px',
+           
+            margin: "0",
+        },
+        [theme.breakpoints.down('md')]:{
+           
+            margin: "0",
+        },
     },
     bookCoverContainer: {
         textAlign: 'center',
         marginBottom: '10px',
-        
+        [theme.breakpoints.down('md')]:{
+            textAlign: 'right',
+            marginRight: '80px',
+        },
 
     },
     bookCover: {
         border: '1px solid #c1bbbb',
         filter: 'drop-shadow(-1px 4px 4px #4e4e4e)',
+        [theme.breakpoints.down('md')]:{
+            width: '300px',
+            height: '380px',
+        },
     },
-
+    iframe: {
+        [theme.breakpoints.down('md')]:{
+            width: '500px',
+            height: '800px',
+        },
+    }
 }) )
 const Book = () => {
     const classes = useStyles()

@@ -15,16 +15,33 @@ const useStyles = makeStyles( (theme) => ({
         margin: '180px',
         marginTop: '50px',
         marginBottom: '90px',
+        [theme.breakpoints.down('md')]:{
+            /*justifyContent: 'center',*/
+            margin: '0px',
+            marginTop: '10px',
+
+        },
     },
     
     audioPlayer: {
         marginTop: '10px',
         paddingRight: '10px',
         gridColumn: '3/8',
+        [theme.breakpoints.down('md')]:{
+            marginTop: '10px',
+            paddingRight: '0',
+            gridColumn: '1/4',
+            gridRow: '2/3',
+            width: '400px',
+        },
     },
     
     audioPicture: {
         gridRow: '1/3',
+        [theme.breakpoints.down('md')]:{
+            gridRow: '1/2',
+            gridColumn: '1/3',
+        },
     },
     
     audioDetails: {
@@ -32,6 +49,11 @@ const useStyles = makeStyles( (theme) => ({
         marginTop: "15px",
         gridColumn: "3/8",
         gridRow: '2/3',
+        [theme.breakpoints.down('md')]:{
+            gridColumn: '1/3',
+            gridRow: '3/4',
+            width: '400px',
+        },
     },
     
     gridContent: {

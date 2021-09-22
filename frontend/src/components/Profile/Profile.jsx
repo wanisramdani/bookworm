@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography} from '@material-ui/core';
+import { CssBaseline, Typography} from '@material-ui/core';
 
 /* Local */
 import { Breadcrumb } from '../index';
@@ -14,6 +14,7 @@ const Profile = () => {
 
     return (
         <div className={classes.profileContainer}>
+            <CssBaseline />
             <Breadcrumb className={classes.breadcrumbSection} />
             <div className={classes.profile}>
                 <div className={classes.details}>

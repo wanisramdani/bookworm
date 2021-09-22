@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, FormControl, InputLabel, Select, MenuItem, Button } from '@material-ui/core'
+import { CssBaseline, Input, FormControl, InputLabel, Select, MenuItem, Button } from '@material-ui/core'
 
 import { Breadcrumb } from '../index';
 import DataTable from './DataTable'
@@ -10,6 +10,7 @@ const List = ({ books, cards, videos, audios, fatawi }) => {
     const classes = useStyles();
     return (
         <div className={classes.listContainer}>
+        <CssBaseline />
           <Breadcrumb className={classes.breadcrumbSection} />
           <div className={classes.sideBar}>
 

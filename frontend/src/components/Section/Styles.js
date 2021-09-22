@@ -3,11 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles( (theme) => ({
     section: {
     },
-    paper: {
-        height: 150,
-        width: 100,
-        padding: '6px',
-    },
 
     sectionBar: {
         gridRow: '1/2',
@@ -33,7 +28,6 @@ export default makeStyles( (theme) => ({
         background: '#fff4e5',
         padding: '19px',
         gridRow: '2/4',
-        cursor: 'pointer',
         backgroundRepeat: 'no-repeat',
     },
 
@@ -50,6 +44,10 @@ export default makeStyles( (theme) => ({
         gridTemplateColumns: 'repeat(3, 1fr)',
         gridGap: '10px',
         padding: '10px',
+        overflow: 'overlay',
+        [theme.breakpoints.down("xs")]: {
+            gridTemplateColumns: 'repeat(1, 1fr)',
+        },
     },
 
     bookbtn: {
@@ -65,10 +63,26 @@ export default makeStyles( (theme) => ({
             background: '#80615d',
         }
     },
+    imgCard:{
+        background: "transparent"
+    },
 
-    /* VIDEOS Views */ 
     img: {
-        paddingLeft: '50px',
-        paddingRight: '50px',
-    }
+        background: 'transparent',
+        paddingLeft: '10px',
+        paddingRight: '10px',
+
+    },
+    cardContent: {
+        padding: '0',
+        "&:last-child":{
+            padding: "0",
+        },  
+    },
+
+    /* Video View */
+    videoCard: {
+        background: "transparent"
+    },
+
 }) );

@@ -1,6 +1,6 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy } from 'react'
 
-import { Button } from '@material-ui/core';
+import { CssBaseline, useMediaQuery, Typography, Button, Card, CardMedia, CardContent } from '@material-ui/core';
 import { ChevronRight, ChevronLeft } from '@material-ui/icons'
 
 import Slider from 'react-slick';
@@ -10,7 +10,6 @@ const YoutubeEmbed = lazy( () => import('../Utils/YoutubeEmbed') )
 function MuiNextArrow(props) {
     const { className, style, onClick } = props;
     return (
-
             <ChevronLeft 
                 className={className}
                 style={{ 
@@ -41,9 +40,56 @@ function MuiPrevArrow(props) {
     );
 }
 
-const CardsSlider = () => {
+const prayCardsContent = (classes) => Array.from(new Array(9)).map( (_, i) => 
+                    <Card elevation={0} 
+                        classes={{
+                            root:classes.imgCard
+                        }}
+                    > 
+                        <CardMedia
+                            className={classes.img}
+                            component='img'
+                            height='120'
+                            width='100'
+                            alt='test'
+                            src='https://picsum.photos/200'
+                            onDragStart={event => event.preventDefault()}
+                        />
+                        <CardContent
+                            classes={{root:classes.cardContent}}
+                        >
+                            <Typography gutterBottom variant="h5" component="div">
+                                Lizard
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                )
 
+const videoContent = (classes) => Array.from(new Array(10)).map((_, i) =>
+    <Card elevation={0} 
+        classes={{
+            root:classes.videoCard
+        }}> 
+        <YoutubeEmbed 
+            key={i}
+            src="https://youtu.be/c_8cplBi_gE" 
+            title="Youtube Title"
+            width="200"
+            height="150"
+        />
+        <CardContent
+            classes={{root:classes.cardContent}}
+        >
+            <Typography gutterBottom variant="h5" component="div">
+                Lizard
+            </Typography>
+        </CardContent>
+    </Card>
+)
+
+const CardsSlider = ( {videoDisplay, prayCardDisplay} ) => {
     const classes = useStyles()
+    const isMobile = useMediaQuery( (theme) => theme.breakpoints.down('xs') )
     const sliderSettings = {
         dots: false,
         autoplay: true,
@@ -51,25 +97,17 @@ const CardsSlider = () => {
         infinite: true,
         lazyLoad: 'progressive',
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: isMobile ? 1 : 4,
         slidesToScroll: 3,
         nextArrow: <MuiNextArrow />,
         prevArrow: <MuiPrevArrow />
     }
+
     return(
         <div className={classes.cardContainter}>
             <Slider {...sliderSettings}>
-                {Array.from(new Array(9)).map( (_, i) => 
-                    
-                        <img
-                            className={classes.img}
-                            height='100'
-                            width='120'
-                            alt='test'
-                            src='https://picsum.photos/200'
-                        /> 
-                    
-                )}
+                { prayCardDisplay ? prayCardsContent(classes) : "" }
+                { videoDisplay ? videoContent(classes) : "" }
             </Slider>
         </div>
     )
@@ -90,42 +128,15 @@ const Bookshelf = () => {
     )
 };
 
-const VideoDisplay = () => {
-    const sliderSettings = {
-        dots: false,
-        autoplay: true,
-        draggable: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 3,
-        nextArrow: <MuiNextArrow />,
-        prevArrow: <MuiPrevArrow />
-    }
-
-    return(
-        <Slider {...sliderSettings}>
-            {Array.from(new Array(10)).map((_, i) =>
-                <YoutubeEmbed 
-                    key={i}
-                    src="https://youtu.be/c_8cplBi_gE" 
-                    title="Youtube Title"
-                    width="150"
-                    height="100"
-                />
-            )}  
-        </Slider>
-    )
-};
 
 
 
 const Section = ( {title} ) => {
-
     const classes = useStyles()
-
+    
     return (
         <>
+            <CssBaseline />
             <div className={classes.section}>
                 <div className={classes.sectionBar}>
                     <div className={classes.sectionTitle}>
@@ -136,11 +147,11 @@ const Section = ( {title} ) => {
                 
                 <div className={classes.sectionContent}>
                         {title === "البطاقات الدعوية" 
-                        ? <CardsSlider /> 
+                        ? <CardsSlider prayCardDisplay={true} videoDisplay={false} /> 
                         : title === "كتب السنة" 
                             ? <Bookshelf />
                             : title === "قسم المرئيات" 
-                                ? <VideoDisplay />
+                                ? <CardsSlider videoDisplay={true} prayCardDisplay={false} />
                                 : ""
                         }
                 </div>

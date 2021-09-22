@@ -21,6 +21,7 @@ export default makeStyles( (theme) => ({
     },
 
     search: {
+        marginRight: 'auto',
         paddingRight: '100px',
     },
 
@@ -49,6 +50,18 @@ export default makeStyles( (theme) => ({
             width: "20ch"
             }
         }
+    },
+    
+    drawer: {
+        "& .MuiDrawer-paper" : {
+            background: '#fff4e5'
+        },
+    },
+
+    itemsMobile:{
+        display: 'inline-grid',
+        padding: '0 10px 0 100px',
+        
     }
 
 }) );
