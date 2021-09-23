@@ -11,7 +11,7 @@ const Todaydate = () => {
     const displayDate = hijriDate +' ، الموافق لـ '+ simplifyDate
     const currentTime = dateState.toLocaleTimeString('ar-SE',{
         /* http://www.healthstream.com/hlchelp/Administrator/Classes/HLC_Time_Zone_Abbreviations.htm */
-        timeZone: 'Asia/Baghdad',
+        timeZone: 'Asia/Kuwait',
         hour: 'numeric',
         minute: 'numeric',
         second: 'numeric', 
