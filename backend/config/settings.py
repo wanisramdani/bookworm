@@ -30,12 +30,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Thir parties
+    # Third parties
     "whitenoise.runserver_nostatic",
     "rest_framework",
     'tinymce', # Required to use HTMLField with content 
     'coreapi',
     'drf_yasg', # Required to document api with swagger/redoc...
+    'corsheaders', # To allow Cross-Origin request
 
     # Local apps
     "backend.apps",
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'backend.config.urls'
@@ -146,3 +148,7 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS' : 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+  'http://localhost:3000',
+)

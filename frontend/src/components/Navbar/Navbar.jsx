@@ -67,6 +67,7 @@ const MobileAppBar = () => {
                 anchor='left'
                 open={open}
                 onClose={handleClick}
+                onOpen={handleClick}
             >  
                 <div className={classes.itemsMobile}>
                     <Typography align="right" className={classes.title} component={Link} to="/" variant="h6">

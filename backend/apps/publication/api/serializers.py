@@ -3,37 +3,42 @@ from rest_framework import serializers
 from backend.apps.publication import models
 
 class ArticleSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.IntegerField(read_only=True)
     class Meta:
         model = models.Article
         fields = '__all__'
 
-
+# BOOK , VIDEO, AUDIO, PRAYCARD, FATAWI
 class BookSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.IntegerField(read_only=True)
     class Meta:
         model = models.Book
         fields = '__all__'
 
 
-# BOOK , VIDEO, AUDIO, PRAYCARD, FATAWI
 class VideoSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.IntegerField(read_only=True)
     class Meta:
         model = models.Video
         fields = '__all__'
 
 
 class AudioSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.IntegerField(read_only=True)    
     class Meta:
         model = models.Audio
         fields = '__all__'
 
 
 class PraycardSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.IntegerField(read_only=True)
     class Meta:
         model = models.Praycard
         fields = '__all__'
 
 
 class FatawiSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.IntegerField(read_only=True)
     class Meta:
         model = models.Fatawi
         fields = '__all__'
@@ -42,18 +47,21 @@ class FatawiSerializer(serializers.HyperlinkedModelSerializer):
 # TODO: move it to its own file
 #========Category===========
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.IntegerField(read_only=True)
     class Meta:
         model = models.Category
         fields = '__all__'
 
 
 class KlassSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.IntegerField(read_only=True)
     class Meta:
         model = models.Klass
         fields = '__all__'
 
 
 class SeriesSerializer(serializers.HyperlinkedModelSerializer):
+    id = serializers.IntegerField(read_only=True)
     class Meta:
         model = models.Series
         fields = '__all__'

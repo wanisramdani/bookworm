@@ -1,4 +1,4 @@
-import React, { lazy, useState } from 'react'
+import React, { lazy, useState, useEffect } from 'react'
 
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardMedia, Typography, Grid} from '@material-ui/core'
@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/styles'
 import { Box } from '@material-ui/core';
 import { Divider } from '@material-ui/core';
 import { CustomPagination } from '..';
+import axios from "axios";
 
 const YoutubeEmbed = lazy( () => import('../Utils/YoutubeEmbed') )
 
@@ -105,8 +106,16 @@ const MediaList = ({ cards, video, searchItem }) => {
             return item
         }
         return ''
-        
     }
+
+    const baseURL = "http://127.0.0.1:8000/api";
+
+    useEffect( () => {
+        axios.get(`${baseURL}/video/`)
+        .then( (response) => {
+          console.log(response.data.total)
+        } )
+    }, [])
 
     const filterItemData = itemData.filter( filter ).length > 0 
                 ?(itemData.filter(filter)
@@ -205,5 +214,7 @@ const itemData = [
     },
   ];
 
+
+  
 
 export default MediaList

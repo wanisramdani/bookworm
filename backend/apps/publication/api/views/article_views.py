@@ -17,7 +17,6 @@ class BookViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
 
 
-
 class AudioViewSet(viewsets.ModelViewSet):
     queryset = Audio.objects.all()
     serializer_class = AudioSerializer
