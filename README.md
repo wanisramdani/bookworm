@@ -1,10 +1,3 @@
-# To search
-max length for arabic title/names
-iframe, audio player, youtube video attachement 
-
-# TO ASK
-author: is the author set by the admin/manager or the one created the article is the author
-
 # Database design
 Article/Post (title, author, created_on, updated_on, draft, status,class, series, type, category)
 {
@@ -31,12 +24,6 @@ category = Book, Audio, Video, Pray-cards, Fatawi
 class = القسم (Many to one)
 type = صنف ,نوع
 series = السلسلة
-
-e.g:
-القسم:  قضايا معاصرة
-مرض كورونا
-وصايا ونصائح
-
 
 ```plantuml
 Article <|-- Book, Audio, Video, Pray-cards, Fatawi
@@ -97,23 +84,3 @@ What causing this issue is django needs to add your new changes/fields to alread
 
 # Must run commands:
 python3 manage.py collectstatic
-
-videos: 
-الشيخ
-القسم
-السلسلة
-
-audio:
-الشيخ
-القسم
-السلسلة
-
-books:
-الشيخ
-القسم
-النوع
-
-card:
-الشيخ
-السلسلة
-صنف البطاقة
