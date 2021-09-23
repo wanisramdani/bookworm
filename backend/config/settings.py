@@ -39,7 +39,6 @@ INSTALLED_APPS = [
 
     # Local apps
     "backend.apps",
-    "backend.apps.demo.apps.DemoConfig",
     "backend.apps.publication.apps.PublicationConfig",
 ]
 

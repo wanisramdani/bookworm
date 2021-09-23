@@ -9,7 +9,6 @@ from rest_framework import routers, permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-from backend.apps.demo.api import views as demo_vs
 from backend.apps.publication.api import views as pub_views
 
 
