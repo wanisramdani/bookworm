@@ -1,24 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import { createTheme, ThemeProvider, CssBaseline } from '@material-ui/core';
+import { Layout, Section, List, Profile } from './components';
+
+const theme = createTheme({
+  direction: 'rtl',
+  typography: {
+    fontFamily: 'Cairo',
+  },
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Switch>
+          <Layout>
+            
+            <Route exact path='/'>
+              <Section title="البطاقات الدعوية" />
+              <Section title="كتب السنة" />
+              <Section title="قسم المرئيات" />  
+            </Route>
+
+            <Route path='/cards'>
+              <List cards={true} />
+            </Route>  
+            
+            <Route path='/books'>
+              <List books={true} />
+            </Route>
+            
+            <Route path='/videos'>
+              <List videos={true} />
+            </Route>
+           
+            <Route path='/audios'>
+              <List audios={true} />
+            </Route>
+            
+            <Route path='/fatawi'>
+              <List fatawi={true} />
+            </Route>
+
+            <Route path='/profile'>
+               <Profile />
+            </Route>
+
+          </Layout>
+        </Switch>
+
+      </Router>
+    </ThemeProvider>
   );
 }
 
