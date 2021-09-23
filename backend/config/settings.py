@@ -30,10 +30,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Thir parties
     "whitenoise.runserver_nostatic",
     "rest_framework",
+    'tinymce', # Required to use HTMLField with content 
+    'coreapi',
+    'drf_yasg', # Required to document api with swagger/redoc...
 
+    # Local apps
+    "backend.apps",
     "backend.apps.demo.apps.DemoConfig",
+    "backend.apps.publication.apps.PublicationConfig",
 ]
 
 MIDDLEWARE = [
