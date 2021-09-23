@@ -67,7 +67,7 @@ const VideoList = ({item, classes}) => {
                 <YoutubeEmbed 
                     src="https://youtu.be/c_8cplBi_gE"
                     title={item.title}
-                    height="180"
+                    height="180px"
                     width="200"
                 />
                 <CardContent classes={{ root:classes.cardContent }} >
@@ -87,9 +87,8 @@ const VideoList = ({item, classes}) => {
     )
 }
 
-const MediaList = ({ cards, video }) => {
+const MediaList = ({ cards, video, searchItem }) => {
     const classes = useStyles();
-
     const numberOfItemsPerPage = 9;
     const [pageNumber, setPageNumber] = useState(1);
     const [pageCount] = useState(
@@ -100,19 +99,31 @@ const MediaList = ({ cards, video }) => {
     const handleChange = (event, value) => {
         setPageNumber(value);
     };
+    const filter = (item) => {
+        const doesItemExist = item.title.toLowerCase().includes(searchItem.toLowerCase()) 
+        if (doesItemExist) {
+            return item
+        }
+        return ''
+        
+    }
+
+    const filterItemData = itemData.filter( filter ).length > 0 
+                ?(itemData.filter(filter)
+                    .slice( start, end )
+                    .map( (item) => (
+                        cards 
+                        ? <CardsList item={item} classes={classes}/> 
+                        : <VideoList item={item} classes={classes} /> 
+                    ) )            
+                )   
+                :  <div> {searchItem} is not found </div> 
 
     return (
         <Grid container justifyContent='center' >
             <Grid item xs={10}>
                 <Grid container spacing={2}>
-                    {itemData
-                        .slice( start, end )
-                        .map( (item) => (
-                            cards 
-                            ? <CardsList item={item} classes={classes}/> 
-                            : <VideoList item={item} classes={classes} /> 
-                        ) )                        
-                    }  
+                    { filterItemData } 
                 </Grid>
             </Grid>
           

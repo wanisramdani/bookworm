@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { CssBaseline, Input, FormControl, InputLabel, Select, MenuItem, Button } from '@material-ui/core'
 
 import { Breadcrumb } from '../index';
@@ -8,6 +8,8 @@ import useStyles from './Styles';
 
 const List = ({ books, cards, videos, audios, fatawi }) => {
     const classes = useStyles();
+    const [searchItem, setSearchItem] = useState("")
+
     return (
         <div className={classes.listContainer}>
         <CssBaseline />
@@ -48,9 +50,13 @@ const List = ({ books, cards, videos, audios, fatawi }) => {
                         </InputLabel>
                         <Select 
                             className={classes.selectFilter}
+                             onChange={ (event) => { setSearchItem(event.target.value) } }
                             classes={{icon:classes.icon, iconOpen:classes.iconOpen,select:classes.selectSelect}}
                         >
-                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem 
+                                value={10}>
+                                    Ten
+                            </MenuItem>
                         </Select>
         
                     </FormControl>
@@ -58,17 +64,19 @@ const List = ({ books, cards, videos, audios, fatawi }) => {
                         <InputLabel shrink className={classes.searchLabel}>
                             القسم
                         </InputLabel>
-                        <Input className={classes.searchInput}  />
+                        <Input 
+                            className={classes.searchInput} 
+                            onChange={ (event) => { setSearchItem(event.target.value) } } 
+                        />
                     </FormControl>
-                    <Button className={classes.filterBtn}>Submit</Button>
                   </div>
               </div>
 
               <div className={classes.listContent}>
-                    {cards ? <MediaList cards={true} /> : ''}
+                    {cards ? <MediaList cards={true} searchItem={searchItem} /> : ''}
                     {books ? <DataTable books={true} /> : ''}
                     {audios ? <DataTable audios={true} /> : ''}
-                    {videos ? <MediaList videos={true} /> : ''}
+                    {videos ? <MediaList videos={true} searchItem={searchItem} /> : ''}
                     {fatawi ? <DataTable fatawi={true} /> : ''}
               </div>
           
