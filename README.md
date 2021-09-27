@@ -69,6 +69,54 @@ Show don't tell
 
 ---
 
+# Setup the project environment 
+
+---
+
+## BACKEND
+
+---
+
+# DATABASE: 
+
+```
+# Install Postgres
+sudo apt install postgresql
+
+# Open Postgres, and create new super user
+psql -U postgres
+posgres=# CREATE USER alssahihin SUPERUSER PASSWORD '';
+
+# Login with the new user and create database
+alssahihin=# CREATE DATABASE alssahihin;
+
+```
+
+---
+
+# Create .env file in base diractory (~/PROJECT/.env): 
+Create `DEBUG` and `SECRET_KEY` and set them as you please
+
+```
+DEBUG = True
+SECRET_KEY = ''
+DB_NAME = 'alssahihin'
+DB_USERNAME = 'alssahihin'
+DB_PASSWORD = ''
+DB_HOST = ''
+```
+
+---
+
+- *DEBUG: true* : means we are in devolpement phase 
+- *SECRET_KEY = ''* : it is used to make hashes, the key should stay private, for more details check [docs](https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECRET_KEY)
+- *DB_NAME = ''* : database name
+- *DB_USERNAME = ''* : the username of the user we created before, we can use postgres but to keep our work clean we created a stand alone user
+- *DB_PASSWORD = ''* : user password 
+- *DB_HOST = ''* : where you database hosted
+
+---
+
 # Creating an new app 
 <!-- (TODO: MAKE A BASH SCRIPT TO SIMPLIFY CREATING APP) -->
 When you create an new app(NEW_APP) you must:
@@ -101,6 +149,20 @@ and use it as in one view file (to make importing it in urls easy)
 ( e.g: NEW_FOLDER/__init__.py )
 
 ---
+
+## FRONTEND
+
+---
+
+> npm install create-react-app
+
+> npm run build
+
+If you want to test the react app alone run:
+
+> npm start
+
+
 
 # Common Errors:
 
