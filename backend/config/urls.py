@@ -18,7 +18,7 @@ schema_view = get_schema_view(
         default_version='v0.0.1',
         description='Sa7i7ine public api',
         terms_of_service="",
-        contact=openapi.Contact(email='admin@artec-int.com'),
+        contact=openapi.Contact(email='wanisramdani00@gmail.com'),
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),

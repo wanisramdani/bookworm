@@ -45,15 +45,18 @@ const useStyles = makeStyles ( theme => ({
 const CustomPagination = ({ page, count, onChange }) => {
     const classes = useStyles();
     const isFirstPage = page === 1 ? true : false
+    const isLastPage =  page === count ? true : false
     return (
         <Pagination
             className={classes.root}
             count={count}
             page={page}
             onChange={onChange}
-            showLastButton={true}
-            showFirstButton={!isFirstPage}
+            /*If true, hide the next-page button.*/
+            hideNextButton={isLastPage}
             hidePrevButton={isFirstPage}
+            showLastButton={!isLastPage}
+            showFirstButton={!isFirstPage}
             variant="outlined" 
             shape="rounded" 
         />    

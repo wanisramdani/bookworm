@@ -117,6 +117,11 @@ DB_HOST = ''
 
 ---
 
+# Create admin
+
+> python manage.py createsuperuser
+
+---
 # Creating an new app 
 <!-- (TODO: MAKE A BASH SCRIPT TO SIMPLIFY CREATING APP) -->
 When you create an new app(NEW_APP) you must:
