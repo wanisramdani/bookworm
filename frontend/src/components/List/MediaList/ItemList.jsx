@@ -28,7 +28,7 @@ const ItemList = ({item, classes, isCard}) => {
                 }
 
                 <CardContent classes={{ root:classes.cardContent }} >
-                    <Typography variant="h5" component={Link} to="/">
+                    <Typography variant="h5" component={Link} to={isCard ? "praycard/" + item.id : "video/" + item.id}>
                         { /* 
                             ** Incase of the title being long
                             ** we display 15 characters

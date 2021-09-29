@@ -45,9 +45,30 @@ function App() {
               <List fatawi={true} />
             </Route>
 
+            <Route path='/video'>
+               <Profile />
+            </Route>
+
+            <Route path='/audio'>
+               <Profile />
+            </Route>
+
+            <Route path='/book'>
+               <Profile />
+            </Route>
+
+            <Route path='/praycard'>
+               <Profile />
+            </Route>
+
+            <Route path='/fatawi'>
+               <Profile />
+            </Route>
+
             <Route path='/profile'>
                <Profile />
             </Route>
+
 
           </Layout>
         </Switch>
