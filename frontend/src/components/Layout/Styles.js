@@ -7,7 +7,7 @@ export default makeStyles( (theme) => ({
         gridTemplateColumns: 'repeat(12, 1fr)',
         gridAutoRows: 'minmax(100px, auto)',
         maxWidth: '1280',
-        maxHeight: '1080',
+        minHeight: '1428px',
         margin: '0 auto',
         position: 'relative',
         [theme.breakpoints.up('xm')]: {

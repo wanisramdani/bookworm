@@ -5,7 +5,7 @@ import { CircularProgress } from '@material-ui/core';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import EmailIcon from '@material-ui/icons/Email';
 
-import { Navbar, Main} from '../index'
+import { Navbar, Main, Loading} from '../index'
 import useStyles from './Styles';
 
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -37,7 +37,7 @@ const Layout = ( {children} ) => {
                 </Box>
                 
                 <Box className={classes.section}>
-                    <Suspense fallback={<CircularProgress />}>
+                    <Suspense fallback={ <Loading /> }>
                         {children}
                     </Suspense>
                 </Box>

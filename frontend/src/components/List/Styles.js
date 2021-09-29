@@ -10,6 +10,7 @@ export default makeStyles( (theme) => ({
         display: 'grid',
         gridTemplateRows: 'repeat(2, 1fr)',
         gridAutoRows: 'minmax(100%, auto)',
+        height: '100%',
     },
 
     list: {
