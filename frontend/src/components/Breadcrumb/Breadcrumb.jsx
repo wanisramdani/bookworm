@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core'
 
 const useStyle = makeStyles( theme => ({
     breadcrumb: {
+        height: '20px',
         gridRow: '1/2',
         gridColumn: '1/12',
         textAlign: 'right',

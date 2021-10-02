@@ -9,6 +9,7 @@ const Loading = () => {
             height: '100%',
             justifyContent: 'center',
             alignContent: 'center',
+            gridColumn: '1/12',
         }}>
             <CircularProgress />
         </Box>

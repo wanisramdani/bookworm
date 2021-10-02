@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Grid, Box, Divider } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-
-import axios from "axios";
 
 import { CustomPagination, Loading } from '../..';
 import ItemList from './ItemList'
 
-import useGet from '../../useGet';
+import { useGetData } from '../../useGet';
+import { NoData } from '../../index';
 
 const useStyles = makeStyles( theme => ({
     cardContent: {
@@ -22,15 +21,19 @@ const useStyles = makeStyles( theme => ({
             paddingBottom: '0',
         },
     },
+    noData: {
+        justifyContent: 'center',
+    }
 }) );
 
 const MediaList = ({ cards, searchItem }) => {
     const classes = useStyles();
-    const { data, error, loading } = useGet( cards ? "praycard/" : "video/" );
+    const { data, error, loading } = useGetData( cards ? "praycard/" : "video/" );
     const numberOfItemsPerPage = 9;
     const [pageNumber, setPageNumber] = useState(1);
-    const [pageCount] = useState(
-        Math.ceil(data.length / numberOfItemsPerPage)
+    const [pageCount] = useState(data !== null 
+       ? Math.ceil(data.length / numberOfItemsPerPage)
+       : 0
     );
     const start = (pageNumber - 1) * numberOfItemsPerPage 
     const end = pageNumber * (numberOfItemsPerPage - 1)
@@ -45,7 +48,7 @@ const MediaList = ({ cards, searchItem }) => {
         }
         return ''
     }
-    const filterItemData = data.filter( filter ).length > 0 
+    const filterItemData = data !== null && data.filter( filter ).length > 0 
                 ?(data.filter(filter)
                     .slice( start, end )
                     .map( (item) => (
@@ -57,12 +60,12 @@ const MediaList = ({ cards, searchItem }) => {
     return (
         <Grid container justifyContent='center' >
             <Grid item xs={10}>
-                <Grid container spacing={2}>
+                <Grid container spacing={2} justifyContent='center'>
                     { loading 
                         ? <Loading /> 
                         : filterItemData.length > 0 
                             ? filterItemData
-                            : <div>No data found</div>
+                            : <NoData />
                     } 
                 </Grid>
             </Grid>

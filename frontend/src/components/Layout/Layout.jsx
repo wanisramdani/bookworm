@@ -1,7 +1,6 @@
 import React, {Suspense} from 'react'
 
 import { Container, Box, CssBaseline, Divider } from '@material-ui/core';
-import { CircularProgress } from '@material-ui/core';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import EmailIcon from '@material-ui/icons/Email';
 
