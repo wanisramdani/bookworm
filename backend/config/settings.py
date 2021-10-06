@@ -13,7 +13,7 @@ FRONTEND_DIR = os.path.abspath(os.path.join(BASE_DIR, '../frontend'))
 #environ.Env.read_env(env_file=os.path.join(BASE_DIR, "../.env"))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = 'django-insecure-_gi!b8(jmis$6*@f$6*wi&yqxzpy6-y12v1-aq2_5x7=z7m+_p'
 
 DEBUG = os.environ.get("DEBUG", default=True)
 

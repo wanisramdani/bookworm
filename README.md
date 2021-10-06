@@ -95,11 +95,11 @@ alssahihin=# CREATE DATABASE alssahihin;
 ---
 
 # Create .env file in base diractory (~/PROJECT/.env): 
-Create `DEBUG` and `SECRET_KEY` and set them as you please
+
+Your .env file must contains the next variables:
 
 ```
 DEBUG = True
-SECRET_KEY = ''
 DB_NAME = 'alssahihin'
 DB_USERNAME = 'alssahihin'
 DB_PASSWORD = ''
@@ -109,7 +109,7 @@ DB_HOST = ''
 ---
 
 - *DEBUG: true* : means we are in devolpement phase 
-- *SECRET_KEY = ''* : it is used to make hashes, the key should stay private, for more details check [docs](https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECRET_KEY)
+<!-- - *SECRET_KEY = ''* : it is used to make hashes, the key should stay private, for more details check [docs](https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECRET_KEY) -->
 - *DB_NAME = ''* : database name
 - *DB_USERNAME = ''* : the username of the user we created before, we can use postgres but to keep our work clean we created a stand alone user
 - *DB_PASSWORD = ''* : user password 
