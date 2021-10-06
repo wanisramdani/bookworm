@@ -12,7 +12,7 @@ const WebAppBar = () => {
     return (
     <div className={classes.navbarItems}>                            
         <div className={classes.items}>
-            <Typography className={classes.title} component={Link} to="/fatawi" variant="h6">
+            <Typography className={classes.title} component={Link} to="/fatawis" variant="h6">
                 Fatawi
             </Typography>
             <Typography  className={classes.title} component={Link} to="/audios" variant="h6">
@@ -85,7 +85,7 @@ const MobileAppBar = () => {
                     <Typography  className={classes.title} component={Link} to="/videos" variant="h6">
                         Video
                     </Typography>
-                    <Typography className={classes.title} component={Link} to="/fatawi" variant="h6">
+                    <Typography className={classes.title} component={Link} to="/fatawis" variant="h6">
                         Fatawi
                     </Typography>
                     

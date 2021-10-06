@@ -41,8 +41,8 @@ function App() {
               <List audios={true} />
             </Route>
             
-            <Route path='/fatawi'>
-              <List fatawi={true} />
+            <Route path='/fatawis'>
+              <List fatawis={true} />
             </Route>
 
             <Route path='/video'>

@@ -6,7 +6,7 @@ import DataTable from './DataTable'
 import MediaList from './MediaList/MediaList';
 import useStyles from './Styles';
 
-const List = ({ books, cards, videos, audios, fatawi }) => {
+const List = ({ books, cards, videos, audios, fatawis }) => {
     const classes = useStyles();
     const [searchItem, setSearchItem] = useState("")
 
@@ -100,7 +100,7 @@ const List = ({ books, cards, videos, audios, fatawi }) => {
                     {books ? <DataTable books={true} /> : ''}
                     {audios ? <DataTable audios={true} /> : ''}
                     {videos ? <MediaList videos={true} searchItem={searchItem} /> : ''}
-                    {fatawi ? <DataTable fatawi={true} /> : ''}
+                    {fatawis ? <DataTable fatawi={true} /> : ''}
               </div>
           
           </div>
