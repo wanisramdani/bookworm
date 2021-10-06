@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+
 import { DataGrid } from '@material-ui/data-grid'
 
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Typography, Button } from '@material-ui/core';
 import { useGridSlotComponentProps } from '@material-ui/data-grid';
 
 import CustomPagination from '../Utils/CustomPagination';
+import { useGetData } from '../useGet';
+import axios from 'axios';
+
 const useStyles = makeStyles( theme => ({ 
   footerContainer: {
     justifyContent: 'center',
@@ -13,53 +18,13 @@ const useStyles = makeStyles( theme => ({
   columnHeader: {
     background: 'red',
   },
+  title: {
+    textDecoration: 'none',
+    color: 'black',
+  }
 
 }) );
 
-const columns = [
-    {
-      field: 'firstName',
-      headerName: 'First name',
-      width: 150,
-      editable: true,
-    },
-    {
-      field: 'lastName',
-      headerName: 'Last name',
-      width: 150,
-      editable: false,
-    },
-    {
-      field: 'age',
-      headerName: 'Age',
-      type: 'number',
-      width: 110,
-      editable: false,
-    },
-    {
-      field: 'fullName',
-      headerName: 'Full name',
-      description: 'This column has a value getter and is not sortable.',
-      sortable: false,
-      width: 160,
-      valueGetter: (params) =>
-        `${params.getValue(params.id, 'firstName') || ''} ${
-          params.getValue(params.id, 'lastName') || ''
-        }`,
-    },
-];
-
-const rows = [
-    { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-    { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-    { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-    { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-    { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-    { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
 
 const DataTablePagination = () => {
   const { state, apiRef } = useGridSlotComponentProps()
@@ -74,14 +39,92 @@ const DataTablePagination = () => {
     />
   )
 }
+const fetchPath = (books, audios, fatawi) => {
+  if (books) {
+    return 'book/'
+  }
+  if (audios){
+    return 'audio/'
+  }
+  if (fatawi){
+    return 'fatawi/'
+  }
+}
 
-const DataTable = ({ books, audio, fatawi }) => {
+const DataTable = ({ books, audios, fatawi, searchItem }) => {
     const classes = useStyles();
+    
+    const { data, error, loading } = useGetData(fetchPath(books, audios, fatawi))   
+    const rows = []
+    const columns = [
+      {
+        field: 'title',
+        headerName: 'Title',
+        width: 300,
+        editable: true,
+        renderCell: (params) => (
+            <Typography className={classes.title} component={Link} to={'book/' + params.id}  variant="h6">
+                  {params.value}
+            </Typography>
+  
+        ),
+      },
+      {
+        field: 'author',
+        headerName: 'Author',
+        width: 200,
+        editable: false,
+        renderCell: (params) => (
+          <Typography className={classes.title}  variant="h6">
+                {params.value}
+          </Typography>
+        ),
+      },   
+      {
+        field: 'klass',
+        headerName: 'Klass',
+        width: 350,
+        editable: false,
+        renderCell: (params) => (
+          <div>
+            {params.value.map((e) => ( 
+              <Typography className={classes.title} component={Link} to={'klass/' + e.id}  variant="h6">
+                { e.title + ' ' }
+                </Typography>
+            ))
+            }
+          </div>        
+        ),
+      },
+      {
+        field: 'created_on',
+        headerName: 'Create date',
+        width: 150,
+        editable: false,
+        renderCell: (params) => (
+          <Typography className={classes.title}  variant="h6">
+                {params.value}
+          </Typography>
+        ),
+      },
+  ];
+  data.map( (item) => {
+    rows.push(
+      {
+        'id' : item.id,
+        'title' : item.title, 
+        'author' : item.author, 
+        'klass' : item.klass.map( (e) => ( e ) ), 
+        'created_on' : item.created_on.split('T')[0] 
+      }
+      )
+      
+  })
+   
     return (
         <div >
             <DataGrid 
-                autoHeight={true}
-                disableColumnMenu
+                autoHeight={true}               
                 rows={rows}
                 columns={columns}
                 pageSize={3}

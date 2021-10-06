@@ -9,6 +9,7 @@ import Audio from './Audio/Audio';
 import Video from './Video/Video';
 import Book from './Book/Book';
 import Card from './Card/Card';
+import Fatawi from './Fatawi/Fatawi'
 
 import { useGetData, useGetKlass, useGetProfile } from '../useGet';
 import { Loading, NoData } from '../index';
@@ -17,16 +18,14 @@ import { Loading, NoData } from '../index';
 const Profile = () => {
     const classes = useStyles()
     const location = useLocation()
-    const { data, category, klass, series, error, loading } = useGetProfile(location.pathname.substring(1) + '/');
+    const { data, error, loading } = useGetData(location.pathname.substring(1) + '/');
+    console.log(data)
     //const { klassData, klassError, klassLoading } = useGetKlass(data.klass);
     //data.klass[0].split('api')[1].substring(1)
     //const dataLoading = loading ? true : klassLoading ? true : false
     //series.current.forEach( e => console.log(e.title)  )
     //let ser = ''
     //console.log( series.map( e =>  e.title  )) 
-
-    console.log("klass: " + klass)
-    
 
 
     const ProfileContent = (type) => {
@@ -41,13 +40,22 @@ const Profile = () => {
             case 'audio':
                 return (<Audio />)
             case 'book':
-                return (<Book />)
+                return (
+                        <Book 
+                        title={data.title}
+                        coverSrc={data.cover}
+                        pdfSrc={data.book_pdf}
+                        />
+                     )
             case 'praycard':
                 return (<Card />)
+            case 'fatawi':
+                return (<Fatawi />)
             default: 
                 return <NoData />
         }
     }
+
     return (
         <div className={classes.profileContainer}>
             <CssBaseline />
@@ -61,8 +69,8 @@ const Profile = () => {
                         <div className={classes.details}>
                             <Typography variant="h4"> {data.title} </Typography>
                             <Typography> {data.author}  <b>:Author</b></Typography>
-                            <Typography>  {klass.title} <b>:KLass</b></Typography>
-                            {category.parent === null ? '' : <Typography> {category.title}  <b>:Card Type</b></Typography> }
+                            {/* <Typography>  {data.klass.map( (e) => ( e.title ) )} <b>:KLass</b></Typography> */}
+                            {/* {category.parent === null ? '' : <Typography> {category.title}  <b>:Card Type</b></Typography> } */}
                         </div>
                         <ProfileContent type={location.pathname.split('/')[1]} />
                     </div>

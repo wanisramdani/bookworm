@@ -39,7 +39,7 @@ const useStyles = makeStyles( (theme) => ({
         },
     }
 }) )
-const Book = () => {
+const Book = ({ title, coverSrc, pdfSrc }) => {
     const classes = useStyles()
 
     return (
@@ -49,8 +49,8 @@ const Book = () => {
                     className={classes.bookCover}
                     width='900'
                     height='1080'
-                    alt=''
-                    src='https://placeimg.com/380/200/nature'
+                    alt={title}
+                    src={coverSrc}
                 />
             </div>
             <iframe 
@@ -58,8 +58,9 @@ const Book = () => {
                 loading='lazy'
                 width='900' 
                 height='800' 
-                title='bruh'
-                src='https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf'>
+                title={title}
+                src={pdfSrc}
+                >
             </iframe>
         </div>
     )
