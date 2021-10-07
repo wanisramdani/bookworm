@@ -1,3 +1,7 @@
+# TODO(important):
+- [ ] Move media folder from /build to its own path 
+- [ ] Fix borken pipe
+
 # Tl;dr:
 
 ---

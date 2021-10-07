@@ -5,12 +5,13 @@ export default makeStyles( (theme) => ({
         [theme.breakpoints.down('sm')]: {
           width: '100%',
         },
+        direction: 'ltr',
         justifySelf: 'center'
     },
     loopIcon: {
         color: '#675756',
         '&.selected': {
-            color: '#6f2924',
+            color: '#e5817a',
         },
         '&:hover': {
             color: '#908382',

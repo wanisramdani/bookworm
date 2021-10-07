@@ -53,8 +53,8 @@ const fetchPath = (books, audios, fatawi) => {
 
 const DataTable = ({ books, audios, fatawi, searchItem }) => {
     const classes = useStyles();
-    
-    const { data, error, loading } = useGetData(fetchPath(books, audios, fatawi))   
+    const fetchedPath = fetchPath(books, audios, fatawi)
+    const { data, error, loading } = useGetData(fetchedPath)   
     const rows = []
     const columns = [
       {
@@ -63,7 +63,7 @@ const DataTable = ({ books, audios, fatawi, searchItem }) => {
         width: 300,
         editable: true,
         renderCell: (params) => (
-            <Typography className={classes.title} component={Link} to={'book/' + params.id}  variant="h6">
+            <Typography className={classes.title} component={Link} to={fetchedPath + params.id}  variant="h6">
                   {params.value}
             </Typography>
   

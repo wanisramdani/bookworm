@@ -22,7 +22,9 @@ const useStyles = makeStyles( (theme) => ({
 
         },
     },
-    
+    root: {
+        direction: 'ltr',
+    },
     audioPlayer: {
         marginTop: '10px',
         paddingRight: '10px',
@@ -73,13 +75,16 @@ const useStyles = makeStyles( (theme) => ({
 
 const muiTheme = createTheme({});
 
-const Audio = () => {
+const Audio = ({ title, audioSrc, audioImg, audioTitle, audioAuthor, album }) => {
     const classes = useStyles()
+
     return (
         <Box className={classes.audioCard}>
             <Box className={classes.audioPlayer}>
                 <ThemeProvider theme={muiTheme}>
                     <AudioPlayer 
+                        classes={{ root: classes.root }}
+                        className={classes.root}
                         width='520px'
                         variation="primary"
                         order="reverse"
@@ -87,31 +92,30 @@ const Audio = () => {
                         loop={true}
                         timePosition='start'
                         useStyles={useStylesAudio}
-                        src="https://assets.coderrocketfuel.com/pomodoro-times-up.mp3"/>
+                        src={audioSrc}
+                        />
                 </ThemeProvider>
             </Box>
             <Box  className={classes.audioPicture}>
                     <img 
                         height="220" width="220" 
-                        alt=''
-                        src='https://placeimg.com/380/200/nature' 
+                        alt={title}
+                        src={audioImg} 
                     />
             </Box>
             <Box className={classes.audioDetails}>
                 
                 <Grid container justifyContent="space-between" direction="column" spacing={1} >
                     <Paper elevation={4} className={classes.gridContent}>
-                        <Typography> lipsom sth  <b>:KLass</b></Typography>
+                        <Typography> {audioTitle}  <strong>:title</strong></Typography>
                     </Paper>
                     <Paper elevation={4} className={classes.gridContent}>
-                        <Typography> lipsom sth  <b>:Author</b></Typography>
+                        <Typography> {audioAuthor}  <b>:Author</b></Typography>
                     </Paper>
                     <Paper elevation={4} className={classes.gridContent}>
-                        <Typography> lipsom sth  <b>:Card Type</b></Typography>
+                        <Typography> {album} <b>:album</b></Typography>
                     </Paper >
-                    <Paper elevation={4} className={classes.gridContent}>
-                        <Typography> lipsom sth  <b>:Series</b></Typography>
-                    </Paper >
+
                 </Grid>
             </Box>
         </Box>

@@ -19,7 +19,6 @@ const Profile = () => {
     const classes = useStyles()
     const location = useLocation()
     const { data, error, loading } = useGetData(location.pathname.substring(1) + '/');
-    console.log(data)
     //const { klassData, klassError, klassLoading } = useGetKlass(data.klass);
     //data.klass[0].split('api')[1].substring(1)
     //const dataLoading = loading ? true : klassLoading ? true : false
@@ -38,13 +37,23 @@ const Profile = () => {
                     />    
                 );
             case 'audio':
-                return (<Audio />)
+                return (
+                    <Audio 
+                        title={data.title}
+                        audioSrc={data.audio_file}
+                        audioImg={data.picture}
+                        audioTitle={data.audio_title}
+                        audioAuthor={data.audio_author}
+                        album={data.album}
+                    />
+                )
             case 'book':
                 return (
                         <Book 
-                        title={data.title}
-                        coverSrc={data.cover}
-                        pdfSrc={data.book_pdf}
+                            title={data.title}
+                            coverSrc={data.cover}
+                            pdfSrc={data.book_pdf}
+
                         />
                      )
             case 'praycard':
