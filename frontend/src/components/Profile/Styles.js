@@ -8,8 +8,6 @@ export default makeStyles( (theme) => ({
         border: '1px solid',
         borderRadius: '15px',
         padding: '10px',
-        display: 'grid',
-
     },
 
     profile: {

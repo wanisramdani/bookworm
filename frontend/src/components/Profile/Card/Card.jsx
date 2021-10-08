@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 }) ) 
 
-const Card = () => {
+const Card = ({ title, cardSrc }) => {
     const classes = useStyles()
     return (
         <div className={classes.cardContainer}>
@@ -31,8 +31,8 @@ const Card = () => {
                 className={classes.card}
                 width='1100'
                 height='1080'
-                alt=''
-                src='https://placeimg.com/380/200/nature'
+                alt={title}
+                src={cardSrc}
             />
         </div>
     )

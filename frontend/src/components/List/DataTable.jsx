@@ -1,14 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 
 import { DataGrid } from '@material-ui/data-grid'
 
-import { makeStyles, Typography, Button } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import { useGridSlotComponentProps } from '@material-ui/data-grid';
 
 import CustomPagination from '../Utils/CustomPagination';
 import { useGetData } from '../useGet';
-import axios from 'axios';
 
 const useStyles = makeStyles( theme => ({ 
   footerContainer: {
@@ -108,7 +107,7 @@ const DataTable = ({ books, audios, fatawi, searchItem }) => {
         ),
       },
   ];
-  data.map( (item) => {
+  data.map( (item) => (
     rows.push(
       {
         'id' : item.id,
@@ -117,31 +116,31 @@ const DataTable = ({ books, audios, fatawi, searchItem }) => {
         'klass' : item.klass.map( (e) => ( e ) ), 
         'created_on' : item.created_on.split('T')[0] 
       }
-      )
-      
-  })
-   
-    return (
-        <div >
-            <DataGrid 
-                autoHeight={true}               
-                rows={rows}
-                columns={columns}
-                pageSize={3}
-                autoPageSize={true}
-                disableSelectionOnClick
-                paginationMode="client"
-                pagination
-                components= {{
-                    Footer: DataTablePagination
-                }}
-                classes={{
-                  Footer:classes.footerContainer,
-                }}
-
-            />
-        </div>
+      )    
     )
+  )
+   
+  return (
+      <div >
+          <DataGrid 
+              autoHeight={true}               
+              rows={rows}
+              columns={columns}
+              pageSize={3}
+              autoPageSize={true}
+              disableSelectionOnClick
+              paginationMode="client"
+              pagination
+              components= {{
+                  Footer: DataTablePagination
+              }}
+              classes={{
+                Footer:classes.footerContainer,
+              }}
+
+          />
+      </div>
+  )
 }
 
 export default DataTable

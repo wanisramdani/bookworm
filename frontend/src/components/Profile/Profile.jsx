@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import { CssBaseline, Typography} from '@material-ui/core';
 import { useLocation } from 'react-router-dom'
 
@@ -11,7 +11,7 @@ import Book from './Book/Book';
 import Card from './Card/Card';
 import Fatawi from './Fatawi/Fatawi'
 
-import { useGetData, useGetKlass, useGetProfile } from '../useGet';
+import { useGetData } from '../useGet';
 import { Loading, NoData } from '../index';
 
 
@@ -57,9 +57,18 @@ const Profile = () => {
                         />
                      )
             case 'praycard':
-                return (<Card />)
+                return (
+                    <Card
+                        title={data.title}
+                        cardSrc={data.cardSrc}
+                    />
+                    )
             case 'fatawi':
-                return (<Fatawi />)
+                return (
+                    <Fatawi 
+                        content={data.content}
+                    />
+                    )
             default: 
                 return <NoData />
         }
