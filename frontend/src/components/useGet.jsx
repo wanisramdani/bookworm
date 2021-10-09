@@ -27,51 +27,6 @@ export const useGetData = path => {
     return { data, error, loading }
 }
 
-export const useGetProfile = path => {
-    const [loading, setLoading] = useState(true);
-    const [data, setData] = useState(null)
-    const [error, setError] = useState(null)
-    const [category, setCategory] = useState('')
-    const [klass, setKlass] = useState([])
-    const [series, setSeries] = useState(null)
-    
-    useEffect( () => {
-        const loadData = async (path) => {
-            try {
-                const response = await axios.get(baseUrl + path)
-                //const [ klassResponse, categoryResponse, seriesData  ] = await axios.all[ getKlass(response.data), getCategory(response.data), getSeries(response.data) ]
-                setData(response.data)
-                
-                setCategory( getCategory(response.data) )
-                setKlass( getKlass(response.data) )         
-                setSeries( getSeries(response.data) ) 
-                setLoading(false);
-                setError(null);   
-
-            } catch(e) {
-                setLoading(false);
-                setError(e.response);
-                setData(null);
-            }
-        }
-    
-        loadData(path)
-    }, [path])
-    
-    return { data, category, klass, series, error, loading }
-}
-
-function getCategory(data) {
-    return axios.get(baseUrl + data.category.split('api')[1].substring(1));
-}
-function getKlass(data) {
-    return axios.get(baseUrl + data.klass[0].split('api')[1].substring(1));
-}
-function getSeries(data) {
-    return axios.get(baseUrl + data.series[0].split('api')[1].substring(1));
-}
-
-
 export const useGetKlass = path => {
     const [klassLoading, setKlassLoading] = useState(true);
     const [klassData, setKlassData] = useState([])
@@ -80,7 +35,7 @@ export const useGetKlass = path => {
     useEffect( () => {           
         const LoadKlass = async () => {
             try {
-                const response = await axios.get(baseUrl + path[0].split('api')[1].substring(1)) 
+                const response = await axios.get(baseUrl + path) 
                 setKlassLoading(false);
                 setKlassData(response.data);
                 setKlassError(null);
@@ -96,4 +51,28 @@ export const useGetKlass = path => {
     return { klassData, klassError, klassLoading }
 }
 
+
+export const useGetSeries = path => {
+    const [seriesLoading, setSeriesLoading] = useState(true);
+    const [seriesData, setSeriesData] = useState([])
+    const [seriesError, setSeriesError] = useState(null)
+
+    useEffect( () => {           
+        const LoadKlass = async () => {
+            try {
+                const response = await axios.get(baseUrl + path) 
+                setSeriesLoading(false);
+                setSeriesData(response.data);
+                setSeriesError(null);
+            } catch(e) {
+                setSeriesLoading(false);
+                setSeriesError(e.response);
+                setSeriesData(null);
+            }
+        }
+        LoadKlass(path)
+    }, [path])
+
+    return { seriesData, seriesError, seriesLoading }
+}
 

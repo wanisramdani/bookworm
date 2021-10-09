@@ -107,6 +107,7 @@ const DataTable = ({ books, audios, fatawi, searchItem }) => {
         ),
       },
   ];
+
   data.map( (item) => (
     rows.push(
       {
@@ -119,7 +120,7 @@ const DataTable = ({ books, audios, fatawi, searchItem }) => {
       )    
     )
   )
-   
+
   return (
       <div >
           <DataGrid 
