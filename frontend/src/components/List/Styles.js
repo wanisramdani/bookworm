@@ -88,4 +88,20 @@ export default makeStyles( (theme) => ({
     listContent: {
         gridRow: '2/3',
     },
+
+    options: {
+        padding: '10px',
+        '&:hover':{
+            cursor: 'pointer',
+            backgroundColor: 'rgba(0, 0, 0, 0.08)',
+        }
+    },
+
+    defaultOptions: {
+        padding: '17px',
+        '&:hover':{
+            cursor: 'pointer',
+            backgroundColor: 'rgba(0, 0, 0, 0.08)',
+        }
+    },
 }) );

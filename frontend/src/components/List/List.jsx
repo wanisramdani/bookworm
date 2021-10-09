@@ -5,10 +5,44 @@ import { Breadcrumb } from '../index';
 import DataTable from './DataTable'
 import MediaList from './MediaList/MediaList';
 import useStyles from './Styles';
+import { useGetData, useGetKlass, useGetSeries } from '../useGet';
+
+const FilterForm = ({ filterTitle, data, handleChange }) => {
+  const classes = useStyles();
+  
+  return (
+    <FormControl className={classes.formControl}>
+      <InputLabel shrink className={classes.labelFilter}>
+        {filterTitle}
+      </InputLabel>
+      <Select 
+          defaultValue=""
+          className={classes.selectFilter}
+          classes={{icon:classes.icon, iconOpen:classes.iconOpen,select:classes.selectSelect}}
+      >
+          <MenuItem value=''>
+              All
+          </MenuItem>
+          {data.map(({id, title}) => (
+            <MenuItem key={id} value={title || ''} onChange={ handleChange } >
+                {title}
+            </MenuItem>
+          ))
+          }
+      </Select>
+    </FormControl>
+  )
+}
 
 const List = ({ books, cards, videos, audios, fatawis }) => {
-    const classes = useStyles();
     const [searchItem, setSearchItem] = useState("")
+    const classes = useStyles();
+    const { klassData, klassError, klassLoading } = useGetKlass('klass/')
+    const { seriesData, seriesError, seriesLoading } = useGetSeries('series/')
+    const { data, error, loading } = useGetData('video/')
+    const handleChange = (event) => {
+      setSearchItem(event.target.value)
+    };
 
     return (
         <div className={classes.listContainer}>
@@ -20,76 +54,52 @@ const List = ({ books, cards, videos, audios, fatawis }) => {
           <div className={classes.list}>
               <div className={classes.filterSpace}>
                   <div className={classes.search}>
-                  <FormControl className={classes.formControl}>
-                        <InputLabel shrink className={classes.labelFilter}>
-                           1 القسم
-                        </InputLabel>
-                        <Select 
-                            className={classes.selectFilter}
-                            classes={{icon:classes.icon, iconOpen:classes.iconOpen,select:classes.selectSelect}}
-                        >
-                            <MenuItem value={''}>
-                                All
-                            </MenuItem>
-                            {itemData.map(({id, title}) => (
-                            <MenuItem key={id} value={title}>
-                                {title}
-                            </MenuItem>
-                            ))
-                            }
-                        </Select>
-                    </FormControl>
-                    {/* age */} 
+                    {/* Klass */}
+                    <FilterForm filterTitle={' Klass'} data={data} handleChange={handleChange}/>
+                 
+                    {/* Author */} 
                     <FormControl className={classes.formControl}>
-                     <InputLabel shrink className={classes.labelFilter}>
-                            القسم
-                        </InputLabel>
-                        <Select 
-                            className={classes.selectFilter}
-                            classes={{icon:classes.icon, iconOpen:classes.iconOpen,select:classes.selectSelect}}
-
-                        >
-                            <MenuItem value={''}>
-                                All
-                            </MenuItem>
-                            {itemData.map(({id, title}) => (
-                            <MenuItem key={id} value={title}>
-                                {title}
-                            </MenuItem>
-                            ))
-                            }
-                        </Select>
+                      <InputLabel shrink className={classes.labelFilter}>
+                        {'Author'}
+                      </InputLabel>
+                      <Select 
+                          defaultValue=""
+                          className={classes.selectFilter}
+                          classes={{icon:classes.icon, iconOpen:classes.iconOpen,select:classes.selectSelect}}
+                      >
+                          <option 
+                              defaultValue=""
+                              className={classes.defaultOptions}
+                              value=""
+                              onClick={ handleChange }
+                            >                           
+                            </option>
+                              {data.map(({id, title, author}) => (
+                                <option 
+                                  defaultValue=""
+                                  className={classes.options}
+                                  key={id} 
+                                  value={title || ''} 
+                                  onClick={ handleChange }
+                                >
+                                {author}
+                            </option>
+                          ))
+                          }
+                      </Select>
                     </FormControl>
-                
-                    <FormControl className={classes.formControl}>
-                        <InputLabel shrink className={classes.labelFilter}>
-                            القسم
-                        </InputLabel>
-                        <Select 
-                            className={classes.selectFilter}
-                            onChange={ (event) => { setSearchItem(event.target.value) } }
-                            classes={{icon:classes.icon, iconOpen:classes.iconOpen,select:classes.selectSelect}}
 
-                        >
-                            <MenuItem value={''}>
-                                All
-                            </MenuItem>
-                            {itemData.map(({id, title}) => (
-                            <MenuItem key={id} value={title}>
-                                {title}
-                            </MenuItem>
-                            ))
-                            }
-                        </Select>
-        
-                    </FormControl>
+                    {/* Series */} 
+                    <FilterForm filterTitle={' Series'} data={seriesData} handleChange={handleChange}/>
+
+                    {/* Input Search */}
                     <FormControl className={classes.searchForm}>
                         <InputLabel shrink className={classes.searchLabel}>
-                            القسم
+                            Search
                         </InputLabel>
                         <Input 
                             className={classes.searchInput} 
-                            onChange={ (event) => { setSearchItem(event.target.value) } } 
+                            onChange={ handleChange } 
                         />
                     </FormControl>
                   </div>
@@ -110,81 +120,3 @@ const List = ({ books, cards, videos, audios, fatawis }) => {
 }
 
 export default List
-
-
-const itemData = [
-    {
-      id : 1,
-      img: 'https://picsum.photos/200',
-      title: 'Breakfast',
-      author: '@bkristastucchio',
-    },
-    {
-      id : 2,
-      img: 'https://picsum.photos/200',
-      title: 'Burger',
-      author: '@rollelflex_graphy726',
-    },
-    {
-      id : 3,
-      img: 'https://picsum.photos/200',
-      title: 'Camera',
-      author: '@helloimnik',
-    },
-    {
-      id : 4,
-      img: 'https://picsum.photos/200',
-      title: 'Coffee',
-      author: '@nolanissac',
-    },
-    {
-      id : 5,
-      img: 'https://picsum.photos/200',
-      title: 'Hats',
-      author: '@hjrc33',
-    },
-    {
-      id : 6,
-      img: 'https://picsum.photos/200',
-      title: 'Honey',
-      author: '@arwinneil',
-    },
-    {
-      id : 7,
-        img: 'https://placeimg.com/380/200/nature',
-        title: 'Sea star',
-        author: '@peterlaster',
-    },
-    {
-      id : 8,
-        img: 'https://placeimg.com/380/200/nature',
-        title: 'Tomato basil',
-        author: '@shelleypauls',
-    },
-
-    {
-      id : 9,
-      img: 'https://picsum.photos/200',
-      title: 'Basketball',
-      author: '@tjdragotta',
-    },
-    {
-      id : 10,
-      img: 'https://picsum.photos/200',
-      title: 'Fern',
-      author: '@katie_wasserman',
-    },
-    {
-      id : 11,
-      img: 'https://picsum.photos/200',
-      title: 'Mushrooms',
-      author: '@silverdalex',
-    },
-
-    {
-      id : 12,
-      img: 'https://placeimg.com/380/200/nature',
-      title: 'Bike',
-      author: '@southside_customs',
-    },
-  ];

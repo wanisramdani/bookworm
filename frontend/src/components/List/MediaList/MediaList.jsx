@@ -40,14 +40,15 @@ const MediaList = ({ cards, searchItem }) => {
     const handleChange = (event, value) => {
         setPageNumber(value);
     };
-
+    
     const filter = (item) => {
-        const doesItemExist = item.title.toLowerCase().indexOf(searchItem.toLowerCase()) !== -1
+        const doesItemExist = item.title.toLowerCase().indexOf(searchItem.toLowerCase()) !== -1 ||  item.author.toLowerCase().indexOf(searchItem.toLowerCase()) !== -1
         if (doesItemExist) {
             return item
         }
         return ''
     }
+
     const filterItemData = data !== null && data.filter( filter ).length > 0 
                 ?(data.filter(filter)
                     .slice( start, end )
