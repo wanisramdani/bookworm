@@ -15,21 +15,32 @@ const FilterForm = ({ filterTitle, data, handleChange }) => {
       <InputLabel shrink className={classes.labelFilter}>
         {filterTitle}
       </InputLabel>
-      <Select 
+
+        <Select 
           defaultValue=""
           className={classes.selectFilter}
           classes={{icon:classes.icon, iconOpen:classes.iconOpen,select:classes.selectSelect}}
-      >
-          <MenuItem value=''>
-              All
-          </MenuItem>
-          {data.map(({id, title}) => (
-            <MenuItem key={id} value={title || ''} onChange={ handleChange } >
+        >
+          <option 
+              defaultValue=""
+              className={classes.defaultOptions}
+              value=""
+              onClick={ handleChange }
+            >                           
+            </option>
+              {data.map(({id, title}) => (
+                <option 
+                  defaultValue=""
+                  className={classes.options}
+                  key={id} 
+                  value={title || ''} 
+                  onClick={ handleChange }
+                >
                 {title}
-            </MenuItem>
+            </option>
           ))
           }
-      </Select>
+        </Select>
     </FormControl>
   )
 }
@@ -55,7 +66,7 @@ const List = ({ books, cards, videos, audios, fatawis }) => {
               <div className={classes.filterSpace}>
                   <div className={classes.search}>
                     {/* Klass */}
-                    <FilterForm filterTitle={' Klass'} data={data} handleChange={handleChange}/>
+                    <FilterForm filterTitle={' Klass'} data={klassData} handleChange={handleChange}/>
                  
                     {/* Author */} 
                     <FormControl className={classes.formControl}>
@@ -64,6 +75,7 @@ const List = ({ books, cards, videos, audios, fatawis }) => {
                       </InputLabel>
                       <Select 
                           defaultValue=""
+                          value=""
                           className={classes.selectFilter}
                           classes={{icon:classes.icon, iconOpen:classes.iconOpen,select:classes.selectSelect}}
                       >
@@ -79,7 +91,7 @@ const List = ({ books, cards, videos, audios, fatawis }) => {
                                   defaultValue=""
                                   className={classes.options}
                                   key={id} 
-                                  value={title || ''} 
+                                  value={author || ''} 
                                   onClick={ handleChange }
                                 >
                                 {author}

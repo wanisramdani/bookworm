@@ -40,10 +40,26 @@ const MediaList = ({ cards, searchItem }) => {
     const handleChange = (event, value) => {
         setPageNumber(value);
     };
-    
+    // TODO: redo filter logic    
     const filter = (item) => {
         const doesItemExist = item.title.toLowerCase().indexOf(searchItem.toLowerCase()) !== -1 ||  item.author.toLowerCase().indexOf(searchItem.toLowerCase()) !== -1
-        if (doesItemExist) {
+        const doesSerieExist = item.series.map( (e) => (e.title.toLowerCase().indexOf(searchItem.toLowerCase()) !== -1) )
+        const doesKlassExist = item.klass.map( (e) => (e.title.toLowerCase().indexOf(searchItem.toLowerCase()) !== -1) )
+        let series = false
+        let klass = false
+        for (let i = 0; i < doesSerieExist.length; i++) {
+            console.log(doesSerieExist[i])
+            if ( doesSerieExist[i] ){                     
+                return  series = true
+            }
+        } 
+        for (let i = 0; i < doesKlassExist.length; i++) {
+            if ( doesKlassExist[i] ){                           
+                return klass = true
+            }
+        } 
+
+        if (doesItemExist || series || klass) {
             return item
         }
         return ''
