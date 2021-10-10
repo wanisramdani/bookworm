@@ -104,7 +104,7 @@ const MediaList = ({ cards, videos, books, audios, fatawi, searchItem }) => {
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                         <TableCell align="right">
-                            <Typography variant="h5" component={Link} to={"video/" + item.id}>
+                            <Typography variant="h5" component={Link} to={fetchedPath + item.id}>
                                 {item.title}
                             </Typography>
                         </TableCell>
