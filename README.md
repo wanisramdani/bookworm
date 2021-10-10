@@ -1,6 +1,7 @@
 # TODO(important):
 - [ ] Move media folder from /build to its own path 
 - [ ] Fix borken pipe
+- [ ] Add author model
 
 # Tl;dr:
 
@@ -89,7 +90,7 @@ sudo apt install postgresql
 
 # Open Postgres, and create new super user
 psql -U postgres
-posgres=# CREATE USER alssahihin SUPERUSER PASSWORD '';
+posgres=# CREATE USER alssahihin SUPERUSER PASSWORD 'stayAwayAlssahihin';
 
 # Login with the new user and create database
 alssahihin=# CREATE DATABASE alssahihin;
@@ -100,13 +101,13 @@ alssahihin=# CREATE DATABASE alssahihin;
 
 # Create .env file in base diractory (~/PROJECT/.env): 
 
-Your .env file must contains the next variables:
+Your .env file must contains the next variables (you can change the values):
 
 ```
 DEBUG = True
 DB_NAME = 'alssahihin'
 DB_USERNAME = 'alssahihin'
-DB_PASSWORD = ''
+DB_PASSWORD = 'stayAwayAlssahihin'
 DB_HOST = ''
 ```
 

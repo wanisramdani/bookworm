@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { CssBaseline, Input, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core'
 
 import { Breadcrumb } from '../index';
-import DataTable from './DataTable'
 import MediaList from './MediaList/MediaList';
 import useStyles from './Styles';
 import { useGetData, useGetKlass, useGetSeries } from '../useGet';
@@ -119,10 +118,10 @@ const List = ({ books, cards, videos, audios, fatawis }) => {
 
               <div className={classes.listContent}>
                     {cards ? <MediaList cards={true} searchItem={searchItem} /> : ''}
-                    {books ? <DataTable books={true} /> : ''}
-                    {audios ? <DataTable audios={true} /> : ''}
+                    {books ? <MediaList books={true} searchItem={searchItem} /> : ''}
+                    {audios ? <MediaList audios={true} searchItem={searchItem} /> : ''}
                     {videos ? <MediaList videos={true} searchItem={searchItem} /> : ''}
-                    {fatawis ? <DataTable fatawi={true} /> : ''}
+                    {fatawis ? <MediaList fatawi={true} searchItem={searchItem} /> : ''}
               </div>
           
           </div>
