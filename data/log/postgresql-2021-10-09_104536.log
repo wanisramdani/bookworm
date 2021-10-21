@@ -1,0 +1,13 @@
+2021-10-09 10:45:36.854 GMT [9576] LOG:  starting PostgreSQL 13.4, compiled by Visual C++ build 1914, 64-bit
+2021-10-09 10:45:36.862 GMT [9576] LOG:  listening on IPv6 address "::", port 5432
+2021-10-09 10:45:36.863 GMT [9576] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2021-10-09 10:45:37.014 GMT [10044] LOG:  database system was shut down at 2021-10-09 05:03:08 GMT
+2021-10-09 10:45:37.513 GMT [9576] LOG:  database system is ready to accept connections
+2021-10-09 18:34:04.587 GMT [1684] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-10-09 18:34:21.744 GMT [9576] LOG:  received fast shutdown request
+2021-10-09 18:34:21.749 GMT [9576] LOG:  aborting any active transactions
+2021-10-09 18:34:21.751 GMT [10236] ERROR:  canceling statement due to user request
+2021-10-09 18:34:21.755 GMT [9576] LOG:  background worker "logical replication launcher" (PID 10236) exited with exit code 1
+2021-10-09 18:34:21.762 GMT [10124] LOG:  shutting down
+2021-10-09 18:34:21.782 GMT [9576] LOG:  database system is shut down

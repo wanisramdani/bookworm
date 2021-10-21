@@ -1,0 +1,6 @@
+2021-10-09 18:35:45.345 GMT [8736] LOG:  starting PostgreSQL 13.4, compiled by Visual C++ build 1914, 64-bit
+2021-10-09 18:35:45.348 GMT [8736] LOG:  listening on IPv6 address "::", port 5432
+2021-10-09 18:35:45.349 GMT [8736] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2021-10-09 18:35:45.544 GMT [9876] LOG:  database system was shut down at 2021-10-09 18:34:21 GMT
+2021-10-09 18:35:45.915 GMT [8736] LOG:  database system is ready to accept connections
+2021-10-09 18:38:01.496 GMT [10096] LOG:  using stale statistics instead of current ones because stats collector is not responding

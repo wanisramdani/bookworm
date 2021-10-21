@@ -1,0 +1,19 @@
+2021-10-20 10:29:41.471 GMT [9824] LOG:  starting PostgreSQL 13.4, compiled by Visual C++ build 1914, 64-bit
+2021-10-20 10:29:41.474 GMT [9824] LOG:  listening on IPv6 address "::", port 5432
+2021-10-20 10:29:41.475 GMT [9824] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2021-10-20 10:29:41.639 GMT [10088] LOG:  database system was shut down at 2021-10-20 00:54:54 GMT
+2021-10-20 10:29:41.985 GMT [9824] LOG:  database system is ready to accept connections
+2021-10-20 10:52:19.553 GMT [2780] FATAL:  password authentication failed for user "postgres"
+2021-10-20 10:52:19.553 GMT [2780] DETAIL:  Connection matched pg_hba.conf line 88: "host    all             all             ::1/128                 scram-sha-256"
+2021-10-20 10:52:34.460 GMT [1252] FATAL:  password authentication failed for user "postgres"
+2021-10-20 10:52:34.460 GMT [1252] DETAIL:  Connection matched pg_hba.conf line 88: "host    all             all             ::1/128                 scram-sha-256"
+2021-10-20 11:00:13.426 GMT [3684] ERROR:  syntax error at or near "123456789" at character 30
+2021-10-20 11:00:13.426 GMT [3684] STATEMENT:  ALTER USER postgres PASSWORD 123456789;
+2021-10-20 11:00:35.856 GMT [8448] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-10-20 16:03:01.516 GMT [8216] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2021-10-20 16:08:31.524 GMT [8216] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2021-10-20 16:08:47.358 GMT [20172] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2021-10-20 16:10:01.540 GMT [8216] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2021-10-20 16:10:17.407 GMT [18824] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2021-10-20 16:12:01.560 GMT [8216] LOG:  using stale statistics instead of current ones because stats collector is not responding

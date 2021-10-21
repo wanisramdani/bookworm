@@ -1,0 +1,7 @@
+2021-10-03 02:12:38.363 GMT [984] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-10-03 02:12:45.973 GMT [6808] LOG:  received fast shutdown request
+2021-10-03 02:12:45.976 GMT [6808] LOG:  aborting any active transactions
+2021-10-03 02:12:46.213 GMT [6808] LOG:  background worker "logical replication launcher" (PID 11404) exited with exit code 1
+2021-10-03 02:12:46.348 GMT [10504] LOG:  shutting down
+2021-10-03 02:12:46.374 GMT [6808] LOG:  database system is shut down

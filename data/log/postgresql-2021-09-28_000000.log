@@ -1,0 +1,15 @@
+2021-09-28 00:11:00.617 GMT [8004] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-09-28 00:11:00.621 GMT [20504] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-09-28 07:30:31.252 GMT [15160] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-09-28 07:30:31.259 GMT [16624] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-09-28 07:30:31.303 GMT [17280] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-09-28 07:30:41.754 GMT [14120] LOG:  received fast shutdown request
+2021-09-28 07:30:41.764 GMT [14120] LOG:  aborting any active transactions
+2021-09-28 07:30:41.773 GMT [14120] LOG:  background worker "logical replication launcher" (PID 15384) exited with exit code 1
+2021-09-28 07:30:41.781 GMT [17540] LOG:  shutting down
+2021-09-28 07:30:41.811 GMT [14120] LOG:  database system is shut down
