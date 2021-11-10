@@ -26,17 +26,24 @@ class SeriesSerializer(serializers.ModelSerializer):
 
 #========Articles=============
 
-class ArticleSerializer(serializers.HyperlinkedModelSerializer):
+class ArticleSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
+    klass = KlassSerializer(many=True, read_only=True)
+    series = SeriesSerializer(many=True, read_only=True)
+    category = CategorySerializer(read_only=True)
     class Meta:
         model = models.Article
         fields = '__all__'
+        extra_kwargs = {
+
+        }
 
 # BOOK , VIDEO, AUDIO, PRAYCARD, FATAWI
 class BookSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     klass = KlassSerializer(many=True, read_only=True)
     series = SeriesSerializer(many=True, read_only=True)
+    category = CategorySerializer(read_only=True)
     class Meta:
         model = models.Book
         fields = '__all__'
@@ -46,6 +53,7 @@ class VideoSerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.IntegerField(read_only=True)
     klass = KlassSerializer(many=True, read_only=True)
     series = SeriesSerializer(many=True, read_only=True)
+    category = CategorySerializer(read_only=True)
     class Meta:
         model = models.Video
         fields = '__all__'
@@ -64,6 +72,7 @@ class PraycardSerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.IntegerField(read_only=True)
     klass = KlassSerializer(many=True, read_only=True)
     series = SeriesSerializer(many=True, read_only=True)
+    category = CategorySerializer(read_only=True)
     class Meta:
         model = models.Praycard
         fields = '__all__'
@@ -73,6 +82,7 @@ class FatawiSerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.IntegerField(read_only=True)
     klass = KlassSerializer(many=True, read_only=True)
     series = SeriesSerializer(many=True, read_only=True)
+    category = CategorySerializer(read_only=True)
     class Meta:
         model = models.Fatawi
         fields = '__all__'
