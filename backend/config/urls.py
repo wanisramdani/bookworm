@@ -45,7 +45,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     url(r'^swagger(.P<format>\.json|.yaml)$', schema_view.without_ui(cache_timeout=0), name="schema-json"),
     url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name="swagger-swagger-ui"),
- 
+  
     path('', catchall),
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),

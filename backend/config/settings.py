@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'coreapi',
     'drf_yasg', # Required to document api with swagger/redoc...
     'corsheaders', # To allow Cross-Origin request
+    'django_filters',
 
     # Local apps
     "backend.apps",
@@ -146,6 +147,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
     'DEFAULT_SCHEMA_CLASS' : 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
 CORS_ORIGIN_ALLOW_ALL = False
