@@ -1,0 +1,30 @@
+2021-09-27 10:41:07.200 GMT [14120] LOG:  starting PostgreSQL 13.4, compiled by Visual C++ build 1914, 64-bit
+2021-09-27 10:41:07.203 GMT [14120] LOG:  listening on IPv6 address "::", port 5432
+2021-09-27 10:41:07.204 GMT [14120] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2021-09-27 10:41:09.079 GMT [18064] LOG:  database system was shut down at 2021-09-27 10:40:59 GMT
+2021-09-27 10:41:09.561 GMT [14120] LOG:  database system is ready to accept connections
+2021-09-27 10:52:49.790 GMT [17404] ERROR:  syntax error at or near "WITH" at character 34
+2021-09-27 10:52:49.790 GMT [17404] STATEMENT:  CREATE USER alssahihin SUPERUSER WITH PASSWORD 'stayAwayAlssahihin';
+2021-09-27 10:53:04.438 GMT [17404] ERROR:  syntax error at or near "WITH" at character 32
+2021-09-27 10:53:04.438 GMT [17404] STATEMENT:  CREATE USER username SUPERUSER WITH PASSWORD 'passwordstring';
+2021-09-27 11:43:27.177 GMT [10188] FATAL:  password authentication failed for user "Repu"
+2021-09-27 11:43:27.177 GMT [10188] DETAIL:  Role "Repu" does not exist.
+	Connection matched pg_hba.conf line 88: "host    all             all             ::1/128                 scram-sha-256"
+2021-09-27 11:43:29.464 GMT [15984] FATAL:  password authentication failed for user "Repu"
+2021-09-27 11:43:29.464 GMT [15984] DETAIL:  Role "Repu" does not exist.
+	Connection matched pg_hba.conf line 88: "host    all             all             ::1/128                 scram-sha-256"
+2021-09-27 11:44:16.538 GMT [16624] ERROR:  syntax error at or near "ls" at character 1
+2021-09-27 11:44:16.538 GMT [16624] STATEMENT:  ls
+	create database alssahihin;
+2021-09-27 11:44:24.154 GMT [16624] ERROR:  database "alssahihin" already exists
+2021-09-27 11:44:24.154 GMT [16624] STATEMENT:  create database alssahihin;
+2021-09-27 12:02:46.697 GMT [15240] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-09-27 12:16:30.552 GMT [11908] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-09-27 12:33:08.465 GMT [9276] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-09-27 12:33:37.081 GMT [18312] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-09-27 20:19:01.481 GMT [18844] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

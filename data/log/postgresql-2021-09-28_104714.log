@@ -1,0 +1,9 @@
+2021-09-28 10:47:14.461 GMT [8544] LOG:  starting PostgreSQL 13.4, compiled by Visual C++ build 1914, 64-bit
+2021-09-28 10:47:14.464 GMT [8544] LOG:  listening on IPv6 address "::", port 5432
+2021-09-28 10:47:14.465 GMT [8544] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2021-09-28 10:47:14.815 GMT [9036] LOG:  database system was shut down at 2021-09-28 07:30:41 GMT
+2021-09-28 10:47:15.145 GMT [8544] LOG:  database system is ready to accept connections
+2021-09-28 15:44:54.327 GMT [21648] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-09-28 15:44:54.327 GMT [18520] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

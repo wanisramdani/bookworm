@@ -14,6 +14,9 @@ vagrant/env_local.sh
 build/
 static/
 
+#PDF
+*.pdf
+
 # vi
 *.swp
 
@@ -30,6 +33,7 @@ static/
 .env
 env/
 venv/
+venv_bookworm/
 
 # Ignore tox installation
 .tox

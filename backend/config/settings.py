@@ -13,7 +13,7 @@ FRONTEND_DIR = os.path.abspath(os.path.join(BASE_DIR, '../frontend'))
 #environ.Env.read_env(env_file=os.path.join(BASE_DIR, "../.env"))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = 'django-insecure-_gi!b8(jmis$6*@f$6*wi&yqxzpy6-y12v1-aq2_5x7=z7m+_p'
 
 DEBUG = os.environ.get("DEBUG", default=True)
 
@@ -30,10 +30,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third parties
     "whitenoise.runserver_nostatic",
     "rest_framework",
+    'tinymce', # Required to use HTMLField with content 
+    'coreapi',
+    'drf_yasg', # Required to document api with swagger/redoc...
+    'corsheaders', # To allow Cross-Origin request
+    'django_filters',
 
-    "backend.apps.demo.apps.DemoConfig",
+    # Local apps
+    "backend.apps",
+    "backend.apps.publication.apps.PublicationConfig",
 ]
 
 MIDDLEWARE = [
@@ -44,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'backend.config.urls'
@@ -73,10 +82,10 @@ WSGI_APPLICATION = 'backend.config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sa7i7i',
-        'USER' : 'repu',
-        'PASSWORD': 'test',
-        'HOST': '127.0.0.1',
+        'NAME':  os.environ.get("DB_NAME"),
+        'USER' :  os.environ.get("DB_USERNAME"),
+        'PASSWORD':   os.environ.get("DB_PASSWORD"),
+        'HOST':  os.environ.get("DB_HOST"),
         'PORT': '5432',
     }
 }
@@ -138,5 +147,10 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
     'DEFAULT_SCHEMA_CLASS' : 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+  'http://localhost:3000',
+)

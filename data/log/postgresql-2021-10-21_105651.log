@@ -1,0 +1,5 @@
+2021-10-21 10:56:51.656 GMT [9868] LOG:  starting PostgreSQL 13.4, compiled by Visual C++ build 1914, 64-bit
+2021-10-21 10:56:51.658 GMT [9868] LOG:  listening on IPv6 address "::", port 5432
+2021-10-21 10:56:51.659 GMT [9868] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2021-10-21 10:56:51.945 GMT [7604] LOG:  database system was shut down at 2021-10-21 01:58:51 GMT
+2021-10-21 10:56:52.295 GMT [9868] LOG:  database system is ready to accept connections
